@@ -1,0 +1,42 @@
+The following SNIPPETS files are either non-MS/PC-DOS specific or may be
+easily ported to other environments:
+
+Cast.H         Hilobyte.H     Pi.H           Round.H        C_Lines.Awk
+A2E.C          Amalloc.C      Ansiflen.C     Ansiself.C     Approx.C
+Bascnvrt.C     Bastrngs.C     Bitarray.C     Bitcnt_1.C     Bitcnt_2.C
+Bitfiles.C     Bitops.C       Bitstrng.C     Bstr_I.C       Bresnham.C
+Calsupp.C      Cant.C         Checksum.C     Combin.C       Commafmt.C
+Crc-16.C       Crc-16F.C      Crc_32.C       Crypt.C        Ctrlprnt.C
+Cubic.C        Dbl2Long.C     Dblround.C     Editgets.C     Eng.C
+Eval.C         Factoryl.C     Fcompare.C     Fcopy.C        Ferrorf.C
+Fmtmoney.C     Fpswitch.C     Fscanbin.C     Fsm.C          Getstrng.C
+Hexorint.C     Howdy.C        Hstr_I.C       Initvars.C     Isisbn.C
+Ispow2.C       Isqrt.C        Jdn.C          Lbitops.C      Ldfloor.C
+Ll_Msort.C     Ll_Qsort.C     Ltoa.C         Ltostr.C       Lv1Ws.C
+Mainmain.C     Mdalloc.C      Memrev.C       Mkdirs.C       Moon_Age.C
+Ord_Text.C     Perm_Idx.C     Pluraltx.C     Rand1.C        Rand2.C
+Redir.C        Rg_Isort.C     Rg_Qsort.C1    Rg_Qsort.C2    Rg_Rand.C
+Rg_Ssort.C     Rmallws.C      Rmlead.C       Rmtrail.C      Rndmize.C
+Scanfrac.C     Soundex.C      Srchfile.C     Sstrcpy.C      Stats.C
+Stptok.C       Str27Seg.C     Strftime.C     Strrepl.C      Strrev.C
+Strsort.C      Strucfil.C     Style.C        Tabtrick.C     Toascii.C
+Translat.C     Trim.C         Wb_Fcopy.C     Weird.C        Windchil.C
+Wordwrap.C     Xstrcat.C      Xstrcmp.C      C_Prec.Txt     Storage.Typ
+Rtlftrul.Txt   Ptr_Help.Txt   C_Port.Txt     Enums.Txt      Resource.Lst
+Match.H        Match.C        Match.Doc      Dirmask.C      Patmat.C
+Fln_Fix.C      Getcmt.C       Testcmt.C      Scaldate.H     Scaldate.C
+Daynum.C       Cal.C          W_Wrap.H       W_Wrap.C       Center.C
+Xfile.H        Xfile.C        Xtest.C        Getopt3.C      Getopts.H
+Getopts.C      Pbmsrch.C      Bmhsrch.C      Bmhisrch.C     Bmhasrch.C
+Strdup.C       Strupr.C       Iostutor.Txt   Myio.H         Myio.Cpp
+Mystream.H     Mystream.Cpp   Myline.H       Myline.Cpp     Myiodemo.Cpp
+Myio.Mak       Str.Doc        Str.H          Str.C          Mem.Txt
+Toolkit.H      Mem.H          Mem.C          2Dlife.C       Bigfac.C
+Bincomp.C      C_Cmnt.C       Chbytes.C      Cmdline.C      Commconv.C
+Factor.C       Fraction.C     Head.C         Hexdump.C      Ifactor.C
+Inchcvrt.C     Killff.C       Log.C          Lzhuf.C        Maze_1.C
+Maze_2.C       Maze_3.C       Mv.C           Palndrom.C     Permute1.C
+Permute2.C     Pi.C           Pr.C           Rdxcnvrt.C     Remtab.C
+Roman.C        Split.C        Stub.C         Sunriset.C     Tail.C
+Uuencode.C     Uudecode.C     Wc.C           Where.C        Jgrep.C
+Grep.C
