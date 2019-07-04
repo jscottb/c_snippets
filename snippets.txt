@@ -1,0 +1,23 @@
+INFORMATION ABOUT SNIPPETS APR 94 EDITION
+=========================================
+
+Beginning with the Dec '92 edition, SNIPPETS is being distributed in two
+forms.
+
+The first, and most familiar, is the full SNIPPETS collection. As before it
+is named "SNIPdddd.xxx", where "dddd" is the release date and "xxx" is the
+archive utility extension. For example, I distribute the Apr '94 edition as
+SNIP9404.LZH, using the LHA.EXE archive utility.
+
+New to the Dec '92 release was SNIPDIFF, an archive containing both files and
+a utility to create a complete and fully-validated SNIPPETS archive using
+files from the last edition of SNIPPETS which haven't changed. This
+represents a considerable saving in the size of the archive and,
+consequently, the time required to download it from bulletin boards and
+public information services.
+
+Beginning the Apr '93 release, SNIPDIFF became even smaller with the
+inclusion of DSAPP.EXE which allows that only the differences for changed
+files need be included. DSAPP.EXE is a public domain utility for applying
+changes, written by David Burton, and which is distributed with his excellent
+TLIB revision control system.

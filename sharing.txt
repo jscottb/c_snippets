@@ -1,0 +1,70 @@
+From:    Mike Ratledge 
+To:      All                                      Msg #245, 03-Aug-88 12:45.00
+Subject: File sharing enabled test
+
+Someone asked the other day about an easy way to determine if file-sharing
+is enabled at program run-time.  I use the following code in all of my
+Turbo C program to do just that:
+
+#define TRUE 1
+#define FALSE 0
+
+int sharing;
+
+
+main (int argc, char *argv[])
+
+{
+  sharing = is_sharing(argv[0]);
+  .
+  .
+  .
+  if (sharing)
+  {
+    /* open file in shared mode */
+    ...
+  }
+  else
+  {
+    /* use "normal" open */
+    ...
+  }
+}
+
+
+int is_sharing(char *arg)
+
+{
+ FILE *exe;
+
+  if (_osmajor < 3)
+    return(FALSE);
+  exe = fopen(arg, "rb");
+  ii = lock(fileno(exe), 0l, 500l);
+  if (ii != -1)
+  {
+    ii = unlock(fileno(exe), 0l, 500l);
+    fclose(exe);
+    return(TRUE);
+  }
+  fclose(exe);
+  return(FALSE);
+}
+
+What does this code do?  First - it checks to make sure it's running under
+DOS 3.0+ - if not - no sharing.  Next - it opens the program itself (the
+.EXE file) by using "argv[0]", which points to the actual program name
+complete with the path under DOS 3.0 or later.  It then attempts to lock
+the first 500 bytes of the program on disk, and if successful (i.e. return
+!= -1) it unlocks the same bytes and closes the file (actually - the unlock
+is superfluous, since closing the file releases all locks) and returns the
+"TRUE" result.  If it fails - it closes the .EXE file and returns FALSE.
+Note that this does not depend on opening a file in shared mode to test it.
+ 
+Note that this code must be modified slightly to be useful for MicroSoft
+C, since they use the "locking" procedure for both lock & unlock.  You
+also have to "rewind" before the unlock, since M/S C works from the
+current file-pointer forward.  I could post both - but I'm sure all you
+C-jockeys out there know what I'm talking about if it concerns you (i.e.
+you're using M/S C instead of Turbo).  I also have this coded in Turbo
+Pascal if anyone needs it...

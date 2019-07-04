@@ -1,0 +1,1117 @@
+           UNDERSTANDING POINTERS (for beginners)
+                      by  Ted Jensen
+                       Version 0.0
+      This material is hereby placed in the public domain.
+                     September 5, 1993
+
+                     TABLE OF CONTENTS
+
+    INTRODUCTION;
+
+    CHAPTER 1: What is a pointer?
+
+    CHAPTER 2: Pointer types and Arrays
+
+    CHAPTER 3: Pointers and Strings
+
+    CHAPTER 4: More on Strings
+
+    CHAPTER 5: Pointers and Structures
+
+    CHAPTER 6: Some more on Strings, and Arrays of Strings
+
+    EPILOG:
+
+==================================================================
+
+INTRODUCTION:
+
+    Over a period of several years of monitoring various
+telecommunication conferences on C I have noticed that one of the
+most difficult problems for beginners was the understanding of
+pointers.  After writing dozens of short messages in attempts to
+clear up various fuzzy aspects of dealing with pointers, I set up
+a series of messages arranged in "chapters" which I could draw
+from or email to various individuals who appeared to need help in
+this area.
+
+    Recently, I posted all of this material in the FidoNet CECHO
+conference.  It received such a good acceptance, I decided to
+clean it up a little and submit it for inclusion in Bob Stout's
+SNIPPETS file.
+
+    It is my hope that I can find the time to expand on this text
+in the future.  To that end, I am hoping that those who read this
+and find where it is lacking, or in error, or unclear, would
+notify me of same so the next version, should there be one, I can
+correct these deficiencys.
+
+    It is impossible to acknowledge all those whose messages on
+pointers in various nets contributed to my knowledge in this
+area.  So, I will just say Thanks to All.
+
+    I frequent the CECHO on FidoNet via RBBSNet and can be
+contacted via the echo itself or by email at:
+
+     RBBSNet address 8:916/1.
+
+I can also be reached via
+
+Internet email at ted.jensen@spacebbs.com
+
+Or     Ted Jensen
+       P.O. Box 324
+       Redwood City, CA 94064
+
+==================================================================
+CHAPTER 1: What is a pointer?
+
+    One of the things beginners in C find most difficult to
+understand is the concept of pointers.  The purpose of this
+document is to provide an introduction to pointers and their use
+to these beginners.
+
+    I have found that often the main reason beginners have a
+problem with pointers is that they have a weak or minimal feeling
+for variables, (as they are used in C).  Thus we start with a
+discussion of C variables in general.
+
+    A variable in a program is something with a name, the value
+of which can vary.  The way the compiler and linker handles this
+is that it assigns a specific block of memory within the computer
+to hold the value of that variable.  The size of that block
+depends on the range over which the variable is allowed to vary.
+For example, on PC's the size of an integer variable is 2 bytes,
+and that of a long integer is 4 bytes.  In C the size of a
+variable type such as an integer need not be the same on all
+types of machines.
+
+    When we declare a variable we inform the compiler of two
+things, the name of the variable and the type of the variable.
+For example, we declare a variable of type integer with the name
+k by writing:
+
+    int k;
+
+    On seeing the "int" part of this statement the compiler sets
+aside 2 bytes (on a PC) of memory to hold the value of the
+integer.  It also sets up a symbol table. And in that table it
+adds the symbol k and the address in memory where those 2 bytes
+were set aside.
+
+    Thus, later if we write:
+
+    k = 2;
+
+at run time we expect that the value 2 will be placed in that
+memory location reserved for the storage of the value of k.
+
+    In a sense there are two "values" associated with k, one
+being the value of the integer stored there (2 in the above
+example) and the other being the "value" of the memory location
+where it is stored, i.e. the address of k.  Some texts refer to
+these two values with the nomenclature rvalue (right value,
+pronounced "are value") and lvalue (left value, pronunced "el
+value") respectively.
+
+    The lvalue is the value permitted on the left side of the
+assignment operator '=' (i.e. the address where the result of
+evaluation of the right side ends up).  The rvalue is that which
+is on the right side of the assignment statment, the '2' above.
+Note that rvalues cannot be used on the left side of the
+assignment statement.  Thus:    2 = k;   is illegal.
+
+    Okay, now consider:
+
+    int j, k;
+    k = 2;
+    j = 7;    <-- line 1
+    k = j;    <-- line 2
+
+    In the above, the compiler interprets the j in line 1 as the
+address of the variable j (its lvalue) and creates code to copy
+the value 7 to that address.  In line 2, however, the j is
+interpreted as its rvalue (since it is on the right hand side of
+the assignment operator '=').  That is, here the j refers to the
+value _stored_ at the memory location set aside for j, in this
+case 7.  So, the 7 is copied to the address designated by the
+lvalue of k.
+
+    In all of these examples, we are using 2 byte integers so all
+copying of rvalues from one storage location to the other is done
+by copying 2 bytes.  Had we been using long integers, we would be
+copying 4 bytes.
+
+    Now, let's say that we have a reason for wanting a variable
+designed to hold an lvalue (an address).  The size required to
+hold such a value depends on the system.  On older desk top
+computers with 64K of memory total, the address of any point in
+memory can be contained in 2 bytes.  Computers with more memory
+would require more bytes to hold an address.  Some computers,
+such as the IBM PC might require special handling to hold a
+segment and offset under certain circumstances.  The actual size
+required is not too important so long as we have a way of
+informing the compiler that what we want to store is an address.
+
+    Such a variable is called a "pointer variable" (for reasons
+which will hopefully become clearer a little later).  In C when
+we define a pointer variable we do so by preceding its name with
+an asterisk.  In C we also give our pointer a type which, in this
+case, refers to the type of data stored at the address we will be
+storing in our pointer.  For example, consider the variable
+definition:
+
+    int *ptr;
+
+    ptr is the _name_ of our variable (just as 'k' was the name
+of our integer variable).  The '*' informs the compiler that we
+want a pointer variable, i.e. to set aside however many bytes is
+required to store an address in memory.  The "int" says that we
+intend to use our pointer variable to store the address of an
+integer. Such a pointer is said to "point to" an integer.  Note,
+however, that when we wrote  "int k;" we did not give k a value.
+If this definiton was made outside of any function many compilers
+will initialize it to zero.  Simlarly, ptr has no value, that is
+we haven't stored an address in it in the above definition.  In
+this case, again if the definition is outside of any function, it
+is intialized to a value #defined by your compiler as NULL.  It
+is called a NULL pointer.  While in most cases NULL is #defined
+as zero, it need not be.  That is, different compilers handle
+this differently.  Also note that while zero is an integer, NULL
+need not be.
+
+    But, back to using our new variable ptr.  Suppose now that we
+want to store in ptr the address of our integer variable k.  To
+do this we use the unary '&' operator and write:
+
+    ptr = &k;
+
+    What the '&' operator does is retrieve the lvalue (address)
+of k, even though k is on the right hand side of the assignment
+operator '=', and copies that to the contents of our pointer ptr.
+Now, ptr is said to "point to" k.  Bear with us now, there is
+only one more operator we need to discuss.
+
+    The "dereferencing operator" is the asterisk and it is used
+as follows:
+
+    *ptr = 7;
+
+will copy 7 to the address pointed to by ptr.  Thus if ptr
+"points to" (contains the address of) k, the above statement will
+set the value of k to 7.  That is, when we use the '*' this way
+we are refering to the value of that which ptr is pointing
+at, not the value of the pointer itself.
+
+    Similarly, we could write:
+
+    printf("%d\n",*ptr);
+
+to print to the screen the integer value stored at the address
+pointed to by "ptr".
+
+    One way to see how all this stuff fits together would be to
+run the following program and then review the code and the output
+carefully.
+
+-------------------------------------------------
+#include <stdio.h>
+
+int j, k;
+int *ptr;
+
+
+int main(void)
+{
+   j = 1;
+   k = 2;
+   ptr = &k;
+   printf("\n");
+   printf("j has the value %d and is stored at %p\n",j,&j);
+   printf("k has the value %d and is stored at %p\n",k,&k);
+   printf("ptr has the value %p and is stored at %p\n",ptr,&ptr);
+   printf("The value of the integer pointed to by ptr is %d\n",
+           *ptr);
+   return 0;
+}
+---------------------------------------
+To review:
+
+    A variable is defined by giving it a type and a name (e.g.
+     int k;)
+
+    A pointer variable is defined by giving it a type and a name
+     (e.g. int *ptr) where the asterisk tells the compiler that
+     the variable named ptr is a pointer variable and the type
+     tells the compiler what type the pointer is to point to
+     (integer in this case).
+
+    Once a variable is defined, we can get its address by
+     preceding its name with the unary '&' operator, as in &k.
+
+    We can "dereference" a pointer, i.e. refer to the value of
+     that which it points to, by using the unary '*' operator as
+     in *ptr.
+
+    An "lvalue" of a variable is the value of its address, i.e.
+     where it is stored in memory.  The "rvalue" of a variable is
+     the value stored in that variable (at that address).
+
+==================================================================
+CHAPTER 2: Pointer types and Arrays
+
+    Okay, let's move on.  Let us consider why we need to identify
+the "type" of variable that a pointer points to, as in:
+
+        int *ptr;
+
+    One reason for doing this is so that later, once ptr "points
+to" something, if we write:
+
+        *ptr = 2;
+
+the compiler will know how many bytes to copy into that memory
+location pointed to by ptr.  If ptr was defined as pointing to an
+integer, 2 bytes would be copied, if a long, 4 bytes would be
+copied.  Similarly for floats and doubles the appropriate number
+will be copied.  But, defining the type that the pointer points
+to permits a number of other interesting ways a compiler can
+interpret code.  For example, consider a block in memory
+consisting if ten integers in a row.  That is, 20 bytes of memory
+are set aside to hold 10 integer.
+
+    Now, let's say we point our integer pointer ptr at the first
+of these integers.  Furthermore lets say that integer is located
+at memory location 100 (decimal).   What happens when we write:
+
+    ptr + 1;
+
+    Because the compiler "knows" this is a pointer (i.e. its
+value is an address) and that it points to an integer (its
+current address, 100, is the address of an integer), it adds 2 to
+ptr instead of 1, so the pointer "points to" the _next_
+_integer_, at memory location 102.  Similarly, were the ptr
+defined as a pointer to a long, it would add 4 to it instead of
+1.  The same goes for other data types such as floats, doubles,
+or even user defined data types such as structures.
+
+    Similarly, since ++ptr and ptr++ are both equivalent to
+ptr + 1 (though the point in the program when ptr is incremented
+may be different), incrementing a pointer using the unary ++
+operator, either pre- or post-, increments the address it stores
+by the amount sizeof(type) (i.e. 2 for an integer, 4 for a long,
+etc.).
+
+    Since a block of 10 integers located contiguously in memory
+is, by definition, an array of integers, this brings up an
+interesting relationship between arrays and pointers.
+
+    Consider the following:
+
+    int my_array[] = {1,23,17,4,-5,100};
+
+    Here we have an array containing 6 integers.  We refer to
+each of these integers by means of a subscript to my_array, i.e.
+using my_array[0] through my_array[5].  But, we could
+alternatively access them via a pointer as follows:
+
+    int *ptr;
+
+    ptr = &my_array[0];       /* point our pointer at the first
+                                 integer in our array */
+
+    And then we could print out our array either using the array
+notation or by dereferencing our pointer.  The following code
+illustrates this:
+------------------------------------------------------
+#include <stdio.h>
+
+int my_array[] = {1,23,17,4,-5,100};
+int *ptr;
+
+int main(void)
+{
+    int i;
+    ptr = &my_array[0];     /* point our pointer to the array */
+    printf("\n\n");
+    for(i = 0; i < 6; i++)
+    {
+      printf("my_array[%d] = %d   ",i,my_array[i]);   /*<-- A */
+      printf("ptr + %d = %d\n",i, *(ptr + i));        /*<-- B */
+    }
+    return 0;
+}
+----------------------------------------------------
+   Compile and run the above program and carefully note lines A
+and B and that the program prints out the same values in either
+case.  Also note how we dereferenced our pointer in line B, i.e.
+we first added i to it and then dereferenced the the new pointer.
+Change line B to read:
+
+     printf("ptr + %d = %d\n",i, *ptr++);
+
+and run it again... then change it to:
+
+     printf("ptr + %d = %d\n",i, *(++ptr));
+
+and try once more.  Each time try and predict the outcome and
+carefully look at the actual outcome.
+
+    In C, the standard states that wherever we might use
+&var_name[0] we can replace that with var_name, thus in our code
+where we wrote:
+
+        ptr = &my_array[0];
+
+    we can write:
+
+        ptr = my_array;     to achieve the same result.
+
+    This leads many texts to state that the name of an array is a
+pointer.  While this is true, I prefer to mentally think "the
+name of the array is a _constant_ pointer".  Many beginners
+(including myself when I was learning) forget that _constant_
+qualifier.  In my opinon this leads to some confusion.  For
+example, while we can write ptr = my_array; we cannot write
+
+    my_array = ptr;
+
+    The reason is that the while ptr is a variable, my_array is a
+constant.  That is, the location at which the first element of
+my_array will be stored cannot be changed once my_array[] has
+been declared.
+
+Modify the example program above by changing
+
+    ptr = &my_array[0];     to     ptr = my_array;
+
+and run it again to verify the results are identical.
+
+    Now, let's delve a little further into the difference between
+the names "ptr" and "my_array" as used above.  We said that
+my_array is a constant pointer.  What do we mean by that?  Well,
+to understand the term "constant" in this sense, let's go back to
+our definition of the term "variable".  When we define a variable
+we set aside a spot in memory to hold the value of the
+appropriate type.  Once that is done the name of the variable can
+be interpreted in one of two ways.  When used on the left side of
+the assignment operator, the compiler interprets it as the memory
+location to which to move that which lies on the right side of
+the assignment operator.  But, when used on the right side of the
+assignment operator, the name of a variable is interpreted to
+mean the contents stored at that memory address set aside to hold
+the value of that variable.
+
+    With that in mind, let's now consider the simplest of
+constants, as in:
+
+    int i, k;
+    i = 2;
+
+    Here, while "i" is a variable and then occupies space in the
+data portion of memory, "2" is a constant and, as such, instead
+of setting aside memory in the data segment, it is imbedded
+directly in the code segment of memory.  That is, while writing
+something like k = i;  tells the compiler to create code which at
+run time will look at memory location &i to determine the value
+to be moved to k, code created by  i = 2;  simply puts the '2' in
+the code and there is no referencing of the data segment.
+
+    Similarly, in the above, since "my_array" is a constant, once
+the compiler establishes where the array itself is to be stored,
+it "knows" the address of my_array[0] and on seeing:
+
+    ptr = my_array;
+
+it simply uses this address as a constant in the code segment and
+there is no referencing of the data segment beyond that.
+
+    Well, that's a lot of technical stuff to digest and I don't
+expect a beginner to understand all of it on first reading.  With
+time and experimentation you will want to come back and re-read
+the first 2 chapters.  But for now, let's move on to the
+relationship between pointers, character arrays, and strings.
+
+==================================================================
+CHAPTER 3:  Pointers and Strings
+
+    The study of strings is useful to further tie in the
+relationship between pointers and arrays.  It also makes it easy
+to illustrate how some of the standard C string functions can be
+implemented. Finally it illustrates how and when pointers can and
+should be passed to functions.
+
+    In C, strings are arrays of characters.  This is not
+necessarily true in other languages.  In Pascal or (most versions
+of) Basic, strings are treated differently from arrays.  To start
+off our discussion we will write some code which, while preferred
+for illustrative purposes, you would probably never write in an
+actual program.  Consider, for example:
+
+    char my_string[40];
+
+    my_string[0] = 'T';
+    my_string[1] = 'e';
+    my_string[2] = 'd':
+    my_string[3] = '\0';
+
+    While one would never build a string like this, the end
+result is a string in that it is an array of characters
+_terminated_with_a_nul_character_.  By definition, in C, a string
+is an array of characters terminated with the nul character. Note
+that "nul" is _not_ the same as "NULL".  The nul refers to a zero
+as is defined by the escape sequence '\0'.  That is it occupies
+one byte of memory.  The NULL, on the other hand, is the value of
+an uninitialized pointer and pointers require more than one byte
+of storage.  NULL is #defined in a header file in your C
+compiler, nul may not be #defined at all.
+
+    Since writing the above code would be very time consuming, C
+permits two alternate ways of achieving the same thing.  First,
+one might write:
+
+    char my_string[40] = {'T', 'e', 'd', '\0',};
+
+    But this also takes more typing than is convenient.  So, C
+permits:
+
+    char my_string[40] = "Ted";
+
+    When the double quotes are used, instead of the single quotes
+as was done in the previous examples, the nul character ( '\0' )
+is automatically appended to the end of the string.
+
+    In all of the above cases, the same thing happens.  The
+compiler sets aside an contiguous block of memory 40 bytes long
+to hold characters and initialized it such that the first 4
+characters are Ted\0.
+
+    Now, consider the following program:
+
+------------------program 3.1-------------------------------------
+#include <stdio.h>
+
+char strA[80] = "A string to be used for demonstration purposes";
+char strB[80];
+
+int main(void)
+{
+   char *pA;     /* a pointer to type character */
+   char *pB;     /* another pointer to type character */
+   puts(strA);   /* show string A */
+   pA = strA;    /* point pA at string A */
+   puts(pA);     /* show what pA is pointing to */
+   pB = strB;    /* point pB at string B */
+   putchar('\n');       /* move down one line on the screen */
+   while(*pA != '\0')   /* line A (see text) */
+   {
+     *pB++ = *pA++;     /* line B (see text) */
+   }
+   *pB = '\0';          /* line C (see text) */
+   puts(strB);          /* show strB on screen */
+   return 0;
+}
+--------- end program 3.1 -------------------------------------
+
+    In the above we start out by defining two character arrays of
+80 characters each.  Since these are globally defined, they are
+initialized to all '\0's first.  Then, strA has the first 42
+characters initialized to the string in quotes.
+
+    Now, moving into the code, we define two character pointers
+and show the string on the screen.  We then "point" the ponter pA
+at strA.  That is, by means of the assignment statement we copy
+the address of strA[0] into our variable pA.  We now use puts()
+to show that which is pointed to by pA on the screen.  Consider
+here that the function prototype for puts() is:
+
+    int puts(const char *s);
+
+    For the moment, ignore the "const".  The parameter passed to
+puts is a pointer, that is the _value_ of a pointer (since all
+parameters in C are passed by value), and the value of a pointer
+is the address to which it points, or, simply, an address.  Thus
+when we write:
+
+    puts(strA);        as we have seen, we are passing the
+
+address of strA[0].  Similarly, when we write:
+
+    puts(pA);          we are passing the same address, since
+
+we have set pA = strA;
+
+    Given that, follow the code down to the while() statement on
+line A.  Line A states:
+
+    While the character pointed to by pA (i.e. *pA) is not a nul
+character (i.e. the terminating '\0'), do the following:
+
+    line B states:  copy the character pointed to by pA to the
+space pointed to by pB, then increment pA so it points to the
+next character and pB so it points to the next space.
+
+    Note that when we have copied the last character, pA now
+points to the terminating nul character and the loop ends.
+However, we have not copied the nul character.  And, by
+definition a string in C _must_ be nul terminated.  So, we add
+the nul character with line C.
+
+    It is very educational to run this program with your debugger
+while watching strA, strB, pA and pB and single stepping through
+the program.  It is even more educational if instead of simply
+defining strB[] as has been done above, initialize it also with
+something like:
+
+ strB[80] = "12345678901234567890123456789012345678901234567890"
+
+where the number of digits used is greater than the length of
+strA and then repeat the single stepping procedure while watching
+the above variables.  Give these things a try!
+
+    Of course, what the above program illustrates is a simple way
+of copying a string.  After playing with the above until you have
+a good understanding of what is happening, we can proceed to
+creating our own replacement for the standard strcpy() that comes
+with C.  It might look like:
+
+   char *my_strcpy(char *destination, char *source)
+   {
+        char *p = destination
+        while (*source != '\0')
+        {
+           *p++ = *source++;
+        }
+        *p = '\0';
+        return destination.
+   }
+
+    In this case, I have followed the practice used in the
+standard routine of returning a pointer to the destination.
+
+    Again, the function is designed to accept the values of two
+character pointers, i.e. addresses, and thus in the previous
+program we could write:
+
+int main(void)
+{
+  my_strcpy(strB, strA);
+  puts(strB);
+}
+
+    I have deviated slightly from the form used in standard C
+which would have the prototype:
+
+    char *my_strcpy(char *destination, const char *source);
+
+    Here the "const" modifier is used to assure the user that the
+function will not modify the contents pointed to by the source
+pointer.  You can prove this by modifying the function above, and
+its prototype, to include the "const" modifier as shown.  Then,
+within the function you can add a statement which attempts to
+change the contents of that which is pointed to by source, such
+as:
+
+    *source = 'X';
+
+which would normally change the first character of the string to
+an X.  The const modifier should cause your compiler to catch
+this as an error.  Try it and see.
+
+    Now, let's consider some of the things the above examples
+have shown us.  First off, consider the fact that *ptr++ is to be
+interpreted as returning the value pointed to by ptr and then
+incrementing the pointer value.  On the other hand, note that
+this has to do with the precedence of the operators.  Were we to
+write (*ptr)++ we would increment, not the pointer, but that
+which the pointer points to!  i.e. if used on the first character
+of the above example string the 'T' would be incremented to a
+'U'.  You can write some simple example code to illustrate this.
+
+    Recall again that a string is nothing more than an array
+of characters.  What we have done above is deal with copying
+an array.  It happens to be an array of characters but the
+technique could be applied to an array of integers, doubles,
+etc.  In those cases, however, we would not be dealing with
+strings and hence the end of the array would not be
+_automatically_ marked with a special value like the nul
+character.  We could implement a version that relied on a
+special value to identify the end. For example, we could
+copy an array of postive integers by marking the end with a
+negative integer.  On the other hand, it is more usual that
+when we write a function to copy an array of items other
+than strings we pass the function the number of items to be
+copied as well as the address of the array, e.g. something
+like the following prototype might indicate:
+
+    void int_copy(int *ptrA, int *ptrB, int nbr);
+
+where nbr is the number of integers to be copied.  You might want
+to play with this idea and create an array of integers and see if
+you can write the function int_copy() and make it work.
+
+    Note that this permits using functions to manipulate very
+large arrays.  For example, if we have an array of 5000 integers
+that we want to manipulate with a function, we need only pass to
+that function the address of the array (and any auxiliary
+information such as nbr above, depending on what we are doing).
+The array itself does _not_ get passed, i.e. the whole array is
+not copied and put on the stack before calling the function, only
+its address is sent.
+
+    Note that this is different from passing, say an integer, to
+a function.  When we pass an integer we make a copy of the
+integer, i.e. get its value and put it on the stack.  Within the
+function any manipulation of the value passed can in no way
+effect the original integer.  But, with arrays and pointers we
+can pass the address of the variable and hence manipulate the
+values of of the original variables.
+
+==================================================================
+CHAPTER 4: More on Strings
+
+    Well, we have progressed quite aways in a short time!  Let's
+back up a little and look at what was done in Chapter 3 on
+copying of strings but in a different light.  Consider the
+following function:
+
+   char *my_strcpy(char dest[], char source[])
+   {
+        int i = 0;
+
+        while (source[i] != '\0')
+        {
+           dest[i] = source[i];
+           i++;
+        }
+        dest[i] = '\0';
+        return dest;
+   }
+
+    Recall that strings are arrays of characters.  Here we have
+chosen to use array notation instead of pointer notation to do
+the actual copying.  The results are the same, i.e. the string
+gets copied using this notation just as accurately as it did
+before.  This raises some interesting points which we will
+discuss.
+
+    Since parameters are passed by value, in both the passing of
+a character pointer or the name of the array as above, what
+actually gets passed is the address of the first element of each
+array.  Thus, the numerical value of the parameter passed is the
+same whether we use a character pointer or an array name as a
+parameter.  This would tend to imply that somehow:
+
+        source[i]  is the same as  *(p+i);
+
+In fact, this is true, i.e wherever one writes   a[i]  it can be
+replaced with  *(a + i) without any problems.  In fact, the
+compiler will create the same code in either case.   Now, looking
+at this last expression, part of it..  (a + i)  is a simple
+addition using the + operator and the rules of c state that such
+an expression is commutative.  That is   (a + i) is identical to
+(i + a).  Thus we could write *(i + a) just as easily as
+*(a + i).
+
+    But *(i + a) could have come from i[a] !  From all of this
+comes the curious truth that if:
+
+    char a[20];
+    int i;
+
+    writing    a[3] = 'x';   is the same as writing
+
+               3[a] = 'x';
+
+    Try it!  Set up an array of characters, integers or longs,
+etc. and assigned the 3rd or 4th element a value using the
+conventional approach and then print out that value to be sure
+you have that working.  Then reverse the array notation as I have
+done above.  A good compiler will not balk and the results will
+be identical.   A curiosity... nothing more!
+
+    Now, looking at our function above, when we write:
+
+        dest[i] = source[i];
+
+    this gets interpreted by C to read:
+
+        *(dest + i) = *(source + i);
+
+    But, this takes 2 additions for each value taken on by i.
+Additions, generally speaking, take more time than
+incrementations (such as those done using the ++ operator as in
+i++).  This may not be true in modern optimizing compilers, but
+one can never be sure.  Thus, the pointer version may be a bit
+faster than the array version.
+
+    Another way to speed up the pointer version would be to
+change:
+
+    while (*source != '\0')     to simply    while (*source)
+
+since the value within the parenthesis will go to zero (FALSE) at
+the same time in either case.  
+
+    At this point you might want to experiment a bit with writing
+some of your own programs using pointers.  Manipulating strings
+is a good place to experiment.  You might want to write your own
+versions of such standard functions as:
+
+            strlen();
+            strcat();
+            strchr();
+
+and any others you might have on your system.
+
+    We will come back to strings and their manipulation through
+pointers in a future chapter.  For now, let's move on and discuss
+structures for a bit.
+
+==================================================================
+CHAPTER 5: Pointers and Structures
+
+    As you may know, we can declare the form of a block of data
+containing different data types by means of a structure
+declaration.  For example, a personnel file might contain
+structures which look something like:
+
+  struct tag{
+       char lname[20];        /* last name */
+       char fname[20];        /* first name */
+       int age;               /* age */
+       float rate;            /* e.g. 12.75 per hour */
+       };
+
+    Let's say we have an bunch of these structures in a disk file
+and we want to read each one out and print out the first and last
+name of each one so that we can have a list of the people in our
+files.  The remaining information will not be printed out.  We
+will want to do this printing with a function call and pass to
+that function a pointer to the structure at hand.  For
+demonstration purposes I will use only one structure for now. But
+realize the goal is the writing of the function, not the reading
+of the file which, presumably, we know how to do.
+
+    For review, recall that we can access structure members with
+the dot operator as in:
+
+--------------- program 5.1 ------------------
+#include <stdio.h>
+#include <string.h>
+
+struct tag{
+       char lname[20];      /* last name */
+       char fname[20];      /* first name */
+       int age;             /* age */
+       float rate;          /* e.g. 12.75 per hour */
+       };
+
+struct tag my_struct;       /* declare the structure m_struct */
+
+int main(void)
+{
+  strcpy(my_struct.lname,"Jensen");
+  strcpy(my_struct.fname,"Ted");
+  printf("\n%s ",my_struct.fname);
+  printf("%s\n",my_struct.lname);
+  return 0;
+}
+-------------- end of program 5.1 --------------
+
+    Now, this particular structure is rather small compared to
+many used in C programs.  To the above we might want to add:
+
+  date_of_hire;
+  date_of_last_raise;
+  last_percent_increase;
+  emergency_phone;
+  medical_plan;
+  Social_S_Nbr;
+  etc.....
+
+    Now, if we have a large number of employees, what we want to
+do manipulate the data in these structures by means of functions.
+For example we might want a function print out the name of any
+structure passed to it.  However, in the original C (Kernighan &
+Ritchie) it was not possible to pass a structure, only a pointer
+to a structure could be passed.  In ANSI C, it is now permissible
+to pass the complete structure.  But, since our goal here is to
+learn more about pointers, we won't pursue that.
+
+    Anyway, if we pass the whole structure it means there must be
+enough room on the stack to hold it.  With large structures this
+could prove to be a problem.  However, passing a pointer uses a
+minimum amount of stack space.
+
+    In any case, since this is a discussion of pointers, we will
+discuss how we go about passing a pointer to a structure and then
+using it within the function.
+
+    Consider the case described, i.e. we want a function that
+will accept as a parameter a pointer to a structure and from
+within that function we want to access members of the structure.
+For example we want to print out the name of the employee in our
+example structure.
+
+    Okay, so we know that our pointer is going to point to a
+structure declared using struct tag.  We define such a pointer
+with the definition:
+
+    struct tag *st_ptr;
+
+and we point it to our example structure with:
+
+    st_ptr = &my_struct;
+
+    Now, we can access a given member by de-referencing the
+pointer. But, how do we de-reference the pointer to a structure?
+Well, consider the fact that we might want to use the pointer to
+set the age of the employee.  We would write:
+
+    (*st_ptr).age = 63;
+
+    Look at this carefully.  It says, replace that within the
+parenthesis with that which st_ptr points to, which is the
+structure my_struct.  Thus, this breaks down to the same as
+my_struct.age.
+
+    However, this is a fairly often used expression and the
+designers of C have created an alternate syntax with the same
+meaning which is:
+
+    st_ptr->age = 63;
+
+    With that in mind, look at the following program:
+
+------------ program 5.2 --------------
+
+#include <stdio.h>
+#include <string.h>
+
+struct tag{                   /* the structure type */
+       char lname[20];        /* last name */
+       char fname[20];        /* first name */
+       int age;               /* age */
+       float rate;            /* e.g. 12.75 per hour */
+       };
+
+struct tag my_struct;         /* define the structure */
+
+void show_name(struct tag *p);    /* function prototype */
+
+int main(void)
+{
+  struct tag *st_ptr;         /* a pointer to a structure */
+  st_ptr = &my_struct;        /* point the pointer to my_struct */
+  strcpy(my_struct.lname,"Jensen");
+  strcpy(my_struct.fname,"Ted");
+  printf("\n%s ",my_struct.fname);
+  printf("%s\n",my_struct.lname);
+  my_struct.age = 63;
+  show_name(st_ptr);          /* pass the pointer */
+  return 0;
+}
+
+
+void show_name(struct tag *p)
+{
+  printf("\n%s ", p->fname);     /* p points to a structure */
+  printf("%s ", p->lname);
+  printf("%d\n", p->age);
+}
+-------------------- end of program 5.2 ----------------
+
+    Again, this is a lot of information to absorb at one time.
+The reader should compile and run the various code snippets and
+using a debugger monitor things like my_struct and p while single
+stepping through the main and following the code down into the
+function to see what is happening.
+
+==================================================================
+CHAPTER 6:  Some more on Strings, and Arrays of Strings
+
+   Well, let's go back to strings for a bit.  In the following
+all assignments are to be understood as being global, i.e. made
+outside of any function, including main.
+
+   We pointed out in an earlier chapter that we could write:
+
+   char my_string[40] = "Ted";
+
+which would allocate space for a 40 byte array and put the string
+in the first 4 bytes (three for the characters in the quotes and
+a 4th to handle the terminating '\0'.
+
+    Actually, if all we wanted to do was store the name "Ted" we
+could write:
+
+      char my_name[] = "Ted";
+
+and the compiler would count the characters, leave room for the
+nul character and store the total of the four characters in memory
+the location of which would be returned by the array name, in this
+case my_string.
+
+    In some code, instead of the above, you might see:
+
+     char *my_name = "Ted";
+
+which is an alternate approach.  Is there a difference between
+these?  The answer is.. yes.  Using the array notation 4 bytes of
+storage in the static memory block are taken up, one for each
+character and one for the nul character.  But, in the pointer
+notation the same 4 bytes required, _plus_ N bytes to store the
+pointer variable my_name (where N depends on the system but is
+usually a minimum of 2 bytes and can be 4 or more).
+
+    In the array notation, my_name is a constant (not a
+variable).  In the pointer notation my_name is a variable.  As to
+which is the _better_ method, that depends on what you are going
+to do within the rest of the program.
+
+    Let's now go one step further and consider what happens if
+each of these definitions are done within a function as opposed
+to globally outside the bounds of any function.
+
+void my_function_A(char *ptr)
+{
+  char a[] = "ABCDE";
+  .
+  .
+}
+
+void my_function_B(char *ptr)
+{
+  char *cp = "ABCDE";
+  .
+  .
+}
+
+    Here we are dealing with automatic variables in both cases.
+In my_function_A the automatic variable is the character array
+a[]. In my_function_B it is the pointer cp.  While C is designed
+in such a way that a stack is not required on those processors
+which don't use them, my particular processor (80286) has a
+stack.  I wrote a simple program incorporating functions similar
+to those above and found that in my_function_A the 5 characters
+in the string were all stored on the stack.  On the other hand,
+in my_function_B, the 5 characters were stored in the data space
+and the pointer was stored on the stack.
+
+    By making a[] static I could force the compiler to place the
+5 characters in the data space as opposed to the stack.  I did
+this exercise to point out just one more difference between
+dealing with arrays and dealing with pointers.  By the way, array
+initialization of automatic variables as I have done in
+my_function_A was illegal in the older K&R C and only "came of
+age" in the newer ANSI C.  A fact that may be important when one
+is considering portabilty and backwards compatability.
+
+    As long as we are discussing the relationship/differences
+between pointers and arrays, let's move on to multi-dimensional
+arrays.  Consider, for example the array:
+
+    char multi[5][10];
+
+    Just what does this mean?   Well, let's consider it in the
+following light.
+
+        char multi[5][10];
+        ^^^^^^^^^^^^^
+
+    If we take the first, underlined, part above and consider it
+to be a variable in its own right, we have an array of 10
+characters with the "name"  multi[5].  But this name, in itself,
+implies an array of 5 somethings.  In fact, it means an array of
+five 10 character arrays.  Hence we have an array of arrays.  In
+memory we might think of this as looking like:
+
+      multi[0] = "0123456789"
+      multi[1] = "abcdefghij"
+      multi[2] = "ABCDEFGHIJ"
+      multi[3] = "9876543210"
+      multi[4] = "JIHGFEDCBA"
+
+with individual elements being, for example:
+
+      multi[0][3] = '3'
+      multi[1][7] = 'h'
+      multi[4][0] = 'J'
+
+    Since arrays are to be contiguous, our actual memory block
+for the above should look like:
+
+    "0123456789abcdefghijABCDEFGHIJ9876543210JIHGFEDCBA"
+
+    Now, the compiler knows how many columns are present in the
+array so it can interpret multi + 1 as the address of the 'a' in
+the 2nd row above.  That is, it adds 10, the number of columns,
+to get this location.  If we were dealing with integers and an
+array with the same dimension the compiler would add
+10*sizeof(int) which, on my machine, would be 20.  Thus, the
+address of the "9" in the 4th row above would be &multi[3][0] or
+*(multi + 3) in pointer notation.  To get to the content of the
+2nd element in row 3 we add 1 to this address and dereference the
+result as in
+
+    *(*(multi + 3) + 1)
+
+    With a little thought we can see that:
+
+    *(*(multi + row) + col)    and
+    multi[row][col]            yield the same results.
+
+    The following program illustrates this using integer arrays
+instead of character arrays.
+
+------------------- program 6.1 ----------------------
+#include <stdio.h>
+
+#define ROWS 5
+#define COLS 10
+
+int multi[ROWS][COLS];
+
+int main(void)
+{
+  int row, col;
+  for (row = 0; row < ROWS; row++)
+    for(col = 0; col < COLS; col++)
+      multi[row][col] = row*col;
+  for (row = 0; row < ROWS; row++)
+    for(col = 0; col < COLS; col++)
+    {
+      printf("\n%d  ",multi[row][col]);
+      printf("%d ",*(*(multi + row) + col));
+    }
+  return 0;
+}
+----------------- end of program 6.1 ---------------------
+
+    Because of the double de-referencing required in the pointer
+version, the name of a 2 dimensional array is said to be a
+pointer to a pointer.  With a three dimensional array we would be
+dealing with an array of arrays of arrays and a pointer to a
+pointer to a pointer.  Note, however, that here we have initially
+set aside the block of memory for the array by defining it using
+array notation.  Hence, we are dealing with an constant, not a
+variable.  That is we are talking about a fixed pointer not a
+variable pointer.  The dereferencing function used above permits
+us to access any element in the array of arrays without the need
+of changing the value of that pointer (the address of multi[0][0]
+as given by the symbol "multi").
+
+EPILOG:
+
+    I have written the preceding material to provide an
+introduction to pointers for newcomers to C.  In C, the more one
+understands about pointers the greater flexibility one has in the
+writing of code.  The above has just scratched the surface of the
+subject. In time I hope to expand on this material.  Therefore,
+if you have questions, comments, criticisms, etc. concerning that
+which has been presented, I would greatly appreciate your
+contacting me using one of the mail addresses cited in the
+Introduction.
+
+Ted Jensen

@@ -1,0 +1,47 @@
+Bear in mind that this is an intentionally simple and plain string class,
+devoid of many features which might be found in a more complete
+implementation. 
+
+The reason I say 'intentionally' is purely because it was written for a
+specific set of uses than to be the be-all and everything-including-your-
+kitchen-sink-string-class.  In particular, the aims I had in mind were:
+
+  1.  Portable,
+
+  2.  Small but efficient - where sizeof(str) == sizeof(char *) in
+      almost all C++ implementations,
+
+  3.  Doesn't rely upon, but allows for, NUL terminators, so avoids
+      lots of redundant length calculations as is common in C. The
+      library attempts to use memory operations rather than C string
+      operations where possible,
+
+  4.  As much as possible is implemented in-line for speed. All common
+      operations are centralised into a 'core' set of private functions.
+
+  5.  Copy constructors and assignment are cheap operations by use of
+      reference counting. This makes passing objects by value very cheap
+      (requires no as few as possible memory allocations / copying of
+      string data), and is conservative with memory.
+
+  6.  Should be easily exchanged with char*.
+
+  7.  Memory management of strings made possible by use of a single
+      memory allocation function for string data (easily replaced or
+      enhanced)
+
+  8.  Uses absolutely no third party classes, so is stand-alone, making
+      it highly reusable,
+
+  9.  Requires no additional include files from the standard library.
+
+  10. Avoids use of cast operators for char const * and therefore 
+      prevents problems caused by creation of temporaries (these can
+      also occur with member c_str(), but at least you have to explicitly
+      invoke it rather than causing a temporary to be used in a dangerous
+      manner without notification).
+
+
+  cheers,
+  David Nugent
+  Moderator ('93-'94) of the FidoNet C++ international EchoMail conference

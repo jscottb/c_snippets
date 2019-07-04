@@ -1,0 +1,468 @@
+|NOTES: "+" preceding file name means new since last SNIPPETS
+|       "*" preceding file name means modified since last SNIPPETS
+|       "-" preceding file name means deleted since last SNIPPETS
+|
+| File          Author          Description
+| ------------  --------------  ---------------------------------------------
+* Read.Me                       Last minute information and instructions
++ File_Id.Diz                   File info for BBS's
+* Snippets.Txt                  General information about SNIPPETS
+* Snippets.(C)                  SNIPPETS freeware notice
+* Snippets.Ndx                  SNIPPETS index - this file
+* Snippets.Wc                   Count of SNIPPETS files
++ Missing.Txt                   Rationale of files deleted since last SNIPPETS
++ Nonmsdos.Txt                  List of universal SNIPPETS functions
++ Dosfuncs.Txt                  List of MS/PC-DOS-specific SNIPPETS functions
+* Pdn.Lst       Janis Kracht    List of PDN sites
+  Make.Ini      Jim Nutt        Master file for NDMAKE
+  Ansiscrn.H                    Macros for ANSI.SYS screen control
+  Cast.H        Bob Stout       Cast any object to any type
+- Dow.H
++ Dd_Struc.H    Wayne Hamilton  TC/TC++/BC++ DOS file time/date macros
+  Hilobyte.H                    Extract high, low bytes from an int
++ Pi.H                          Useful definitions using PI
+* Portable.H    Scott Ladd      Write portable code for various PC compilers
+* Round.H       Dave Knapp      Rounding macros
+* Scrnmacs.H    Jerry Houston   Macros for direct video work
+  C_Lines.Awk   Dan Kozak       AWK program to count lines of C code
+  8087_Sav.Asm  Jeffrey Nonken  Saves/restores 80x87 environment
+  Coldboot.Asm  David Nugent    Reliable cold/warm boot
+  Cpucheck.Asm                  Determine type of CPU in use
+  Hires.Asm                     Switch to 43/50 line mode on EGA/VGA
+  Ndpcheck.Asm                  Determine presence of coprocessor
++ Strecpy.Asm   L. Satenstein   Like strcpy, but returns pointer to NUL
+  A2E.C         Bob Stout       ASCII <=> EBCDIC conversions
+  Addhndls.C    Doug Burger     Allow more than 20 open files under DOS 3+
+                Bob Jarvis
++ Addpath.C     Bob Stout       Add directories to path in AUTOEXEC.BAT
+  Amalloc.C     Paul Schlyter   Multi-dimensional array allocate ( <64K on PC)
+* Ansiflen.C    Bob Jarvis      ANSI-compliant file size function
+  Ansiload.C    Bob Jarvis      Detect ANSI.SYS
+  Ansiself.C    Thad Smith      Self-replicating program in ANSI C
+  Ansisys.C                     Detect ANSI.SYS
+  Approx.C      John Rex        Fuzzy string search
+  Assignpr.C    Bob Stout       Multiple printer support
+  Atr2Ansi.C    Bob Stout       Build ANSI.SYS command string, given attribute
+  Bascnvrt.C    Bob Stout       Convert radix of a numeric string
+  Bastrngs.C    Bob Stout       BASIC-like string functions
+  Bitarray.C                    Bit array functions
+  Bitcnt_1.C    Ratko Tomic     Count bits in a number (fast, clever)
+  Bitcnt_2.C                    Count bits in a number (fascinating)
+  Bitfiles.C    Aare Tali       Bit I/O for buffered (fopen'ed) files
+  Bitops.C      Bob Stout       Small bit array macros
+  Bitstrng.C    J. Blauth       Format numeric value as string of bits
++ Bstr_I.C      Bob Stout       Convert binary string to int
++ Break.C       Bob Stout       Control DOS "SET BREAK=" status
++ Bresnham.C    Brian Dessent   Draw lines and circles
+  Calsupp.C     Ray McVay       Calendar support funtions
+  Cant.C        Bob Stout       An fopen() replacement with error trapping
+  Changprn.C    Bob Stout       Change the standard printer device
+  Checkexe.C    Bob Jarvis      Checksum protection for executable files
++ Checksum.C    Bob Stout       Calculate checksum
+  Chgext.C      Bob Stout       Change/add a file name extension
+  Clock.C       Jon Guthrie     On-screen clock generator
+  Combin.C      Thad Smith III  Compute combinations without overflow
+  Commafmt.C    Bob Stout       Add thousands separators to numeric strings
++ Compiler.C                    Test for popular PC compilers & versions
+* Crc-16.C                      Calculated 16-bit CRC
+  Crc-16F.C                     Fast 16-bit CRC
+  Crc_32.C      Gary S. Brown   Table lookup 32-bit CRC
+* Crypt.C       Bob Stout       S-Coder data encryption from DDJ
+  Ctrlprnt.C    Bob Stout       Print a line, displaying Ctrl characters
+  Cubic.C       Ross Cottrell   Solve cubic equations
+  Cursor.C      Bill Wilkie     Cursor management/manipulation
+  Dbl2Long.C    Ross Cottrell   Rounds doubles to longs
+  Dblround.C    Ross Cottrell   Rounds a double to nearest whole number
+- Dd_Struc.C
+  Doscopy.C     Peter Yard      Copy a file
++ Droptime.C    Thor Johnson    Give up time slices to Win, OS/2, etc.
+* Drvalid.C     Bob Stout       Benignly validate disk drives
++ Drvs.C        David Gersic    Checks for valid disk drives, local or remote
+* Dspdtst.C                     I/O benchmark - MSC/TC/ZTC/Watcom
+* Editgets.C    Jon Burchmore   Get an input string with editing functions
+                Bob Stout
++ Eng.C         David Harmon    Floating point value -> engineering notation
+  Errfix.C      Bob Jarvis      Redirect stderr to a file
+  Eval.C        Bob Stout       Simple arithmetic expression evaluator
+  Factoryl.C    Bob Stout       Factorial, combinations, permutations
+* Faskbhit.C    D. Goodenough   Fast kbhit() and kbflush()
+  Favail.C      Bob Stout       How many more files may be fopen'ed?
+  Fcompare.C    Bob Stout       Compare 2 files for equality
+  Fcopy.C       Bob Jarvis      Copy a file
+  Ferrorf.C     Mark Devlin     Formatted error messages
+- Figets.C
+  Files.C       Matthew Hunt    Determine number of FILE set in CONFIG.SYS
+  Fmtmoney.C    Bob Stout       Format US dollar amounts into text strings
+  Fndislot.C    Bob Stout       Locate an unused user interrupt vector
+  Format.C      Bob Stout       Use DOS format to format a diskette
++ Fpswitch.C                    Demo how to use function pointer arrays
+  Fscanbin.C    Ray Gardner     Scan binary fields via format string
++ Fsize.C       Bob Stout       Return true apparent size of buffered file
+  Fsm.C                         Demonstrates a finite state machine
+  Getdcwd.C     Bob Jarvis      Get current working directory for given drive
+  Getkey.C      Bob Stout       Get extended key codes
+  Getseg.C      Bob Stout       Get segment and offset of any object
+  Getstrng.C    Ron Sires       Safe gets() for input string of unknown length
+  Glbl_Env.C    Peter Thomas    Update & remove global environment variables
+  Grafline.C    David Harmon    Demo of PC line drawing characters
++ Hexorint.C    Bob Stout       Auto-convert hex or decimal strings
+  Howdy.C                       Obfuscated C code
+* Hstr_I.C      Bob Stout       Convert hex string to int
+* Hugeread.C    Bob Stout       Read & write huge data using far pointers
+  Hugesort.C    Ray Gardner     Quicksort using huge pointers
+  Initvars.C    Ray Gardner     Read data into variables
+  Iscons.C      Bob Stout       Does a FILE * refer to the console?
+  Isfopen.C     Bob Stout       Is a FILE * in use?
++ Isisbn.C      Maynard Hogg    Validate ISBN (book) numbers
+  Isnetdr.C     Bob Dolan       Determine is a drive is local or remote
+  Ispow2.C                      Is a number an integral power of 2?
+  Isqrt.C                       Integer square root
+  Isramdsk.C    Bob Stout       Determine if a drive is a RAM disk
++ Isshare.C     Mike Ratledge   Determine if file sharing is enabled
+  Isshift.C     Jeff Dunlop     Determine if a shift key is pressed
+* Iswprot.C     Bob Stout       Determine is a floppy is write protected
+                Wayne King
++ Isxkbrd.C     Ed Kowalski     Detects extended (101+ key) keyboard
+  Jdn.C         Paul Schlyter   Julian Day Number computation
+                Ray Gardner
+  Joystick.C    Bob Stout       Joystick support functions
+* Kb_Data.C     Dan Kozak       Keyboard status determination
+* Keylocks.C                    Caps/Num lock set/clear functions
+  Keywatch.C    Robert Mashlan  Demonstrates capturing keyboard interrupt
+  Lbitops.C     Scott Dudley    Large bit array macros
+  Ldfloor.C     Ray Gardner     Long double floor
+* Ll_Msort.C    Ray Gardner     Linked list mergesort
+  Ll_Qsort.C    Jon Guthrie     Linked list quicksort
+* Lsary.C       Bob Stout       Read a directory into a linked list
+  Ltoa.C        Bob Stout       Convert long to a string
+  Ltostr.C      Thad Smith III  Convert long to a string
+  Lv1Ws.C       Bob Stout       Convert whitespace strings to single spaces
+  Mainmain.C                    Obfuscated C code
+  Mcb_Env.C                     Modify master environment using MCB's
+  Mdalloc.C     Blair Haukedal  Multi-dimentional array alloction
+  Memavail.C    Thor Johnson    Report available DOS memory
+  Memrev.C      Ray Gardner     Assymetrical memory swap
+  Mkdirs.C      Bob Stout       Build directory tree (deep mkdir())
+* Moon_Age.C    M. Jones        Determine the phase of the moons for any date
++ Msb2Ieee.C    Jeffrey Foy     Convert MSBIN format to/from IEEE float
+  Noctrlc.C                     Traps Ctrl-C, Ctrl-Break, Ctrl-Alt-Del
+  Noreset.C                     Traps Ctrl-Alt-Del
+* Ord_Text.C    Bob Stout       Format ordinal numbers in English
++ Os_Id.H       David Gibbs     Header for determining PC OS's
++ Os_Id.C       David Gibbs     Determine PC OS
+* Pcnvrt.C      Bob Stout       Convert Pascal strings to C
+  Perm_Idx.C    Thad Smith III  Determine permutation index
+  Pfopen.C      David Engel     Open a file anywhere
+  Pluraltx.C    Bob Stout       How to print proper plurals
+  Prtoggle.C    Bob Stout       Tee stdio to stdprn
+  Prtscrn.C     Bob Stout       Invoke BIOS print screen function
+  Prtstat.C     Bob Stout       Determine printer status
+* Pushdir.C     Bob Stout       Stack-oriented CHDIR functions
+  Rand1.C       Phil Linttell   Random number generator
+  Rand2.C       E. Schneider    Random number generator
+  Reboot.C      Bob Stout       Simple PC reboot function in C
+  Redir.C       F. Piette       Demonstrates output redirection
+* Rg_Isort.C    Ray Gardner     Insertion sort function
+  Rg_Qsort.C1   Ray Gardner     Non-Recursive ANSI quicksort function
+* Rg_Qsort.C2   Ray Gardner     Recursive ANSI quicksort function
+* Rg_Rand.C     Ray Gardner     Minimal random number generator
+  Rg_Ssort.C    Ray Gardner     ANSI quicksort-compatible shellsort function
+  Rmallws.C     Bob Stout       Remove all whitespace from a string
+  Rmlead.C      Bob Stout       Remove leading whitespace from a string
+  Rmtrail.C     Bob Stout       Remove trailing whitespace from a string
+  Rndmize.C                     How to seed ANSI random number generator
+  Scanfrac.C    Thad Smith III  Scans/converts text fractions
+* Scroll.C      Bob Stout       Scroll screen function
+  Setenvar.C    Bob Stout       Set DOS master environment *legally*
+* Shel2Dos.C    Bob Stout       Shell to DOS from a running program
+  Soundex.C     Bob Jarvis      Standard English soundex
+  Speed.C                       Benchmark to calculate I/O performance
++ Spin.C                        Demo of how to make various text "spinners"
+* Srchfile.C    Bob Stout       Search files for text, forwards & backwards
+  Sstrcpy.C     Ray Gardner     Overlapping strcpy() & strcat() work-alikes
+  Stats.C       Bob Stout       Analyze file statistics
+  Stptok.C      Ray Gardner     Improved tokenizing function
++ Str27Seg.C    Bob Stout       Convert numeric string to 7-segment displays
+  Strftime.C    Jim Nutt        Non-locale version of ANSI strftime()
+                Rob Duff
+  Strrepl.C     Gilles Kohl     Replace substrings
+  Strrev.C      Bob Stout       Reverse a string in place using XOR swapping
+  Strsort.C     Ray Gardner     (Shell) Sort a string array
+  Strucfil.C    Lynn Nash       Read/write structures to/from a file
+  Style.C                       Suggested coding style guidelines
++ Tabtrick.C                    Demo using printf() for columnar formatting
+  Timegetc.C    Bob Jarvis      Wait specified time for a keypress
+  Toascii.C                     EBCDIC-ASCII conversion arrays
+  Tp6Tod.C      Thad Smith III  Convert TP 6-byte reals to C doubles
++ Translat.C    Jerry Coffin    Translate string w/ C-style escape sequences
+  Trim.C        Bob Stout       Trim leading, trailing, & embedded spaces
+  Truename.C    gk              Normalize filename using undocumented DOS
+  Unix2Dos.C    Bob Stout       Convert Unix-style pathnames to DOS-style
++ Vfname.C      Sid Rogers      Validate DOS-legal file names
+  Video.C       Jeff Dunlop     C video information functions
+* Wb_Fcopy.C    Walter Bright   Fast file copy/append
+  Weird.C                       Obfuscated C code
+* Whicharc.C    Heinz Ozwirk    Determine which archiver used on a packed file
+                David Gersic
+* Windchil.C                    Compute wind chill factor
+  Wordwrap.C    Robert Morgan   Simple CRT word wrap demonstration
+  Xstrcat.C                     String concatenation funct
+  Xstrcmp.C     S. Offermann    Compare strings using DOS wildcards
+|
+|-------------- FAQ file (answers to Frequently Asked Questions --------------
+|
+* C_Prec.Txt                    Operator precedence/associativity in C / C++
+  Storage.Typ   Jeff Galbraith  C storage types crib sheet
+  Rtlftrul.Txt                  Right-left rule for reading C
+* Ptr_Help.Txt  Ted Jensen      Helpful hints on pointers
+  C_Port.Txt    Joseph Carnage  How to write portable C code
+  Enums.Txt                     Helpful hints for enums
+* Which_C.Txt   Bob Stout       Guidelines for choosing a PC C compiler
+* Resource.Lst  J-Mag Guthrie   C/C++ resources (books, magazines, vendors)
+  Environ.Txt   Bob Stout       Notes on changing the master environment
+  Sharing.Txt   Mike Ratledge   How to check if file sharing is active
+  Evsavres.Txt                  How to blank/restore EGA/VGA screen
+  Ansisys.Txt                   Chart of ANSI screen control codes
++ Vt100.Txt     Jon Guthrie     Chart of VT-100 escape codes
+|
+|-------------- Jim Nutt's direct video functions ----------------------------
+|
+  Vio.H                         Direct screen package
+  Vio.Asm                         "      "      "
+  Scrnsave.C    Bob Stout       Save and restore text screens
+|
+|-------------- Bob Stout's Int 2Eh functions --------------------------------
+|
+  Int2E.Asm                     Access command processor "back door"
+  Ccomcall.C                    C "glue" to use Int 2Eh
+|
+|-------------- Bob Stout's POSIX compliant directory functions --------------
+|
+* Dirent.H                      POSIX compliant header
+* Rfind1St.C                    Compiler-independent find first/next functions
+  Posixdir.C                    opendir(), readdir(), seekdir(), closedir()
+  Posix_Ls.C                    Directory lister demo
+|
+|-------------- J. Kercheval's PD regular expression comparator --------------
+|
+  Match.H                       Header file
+  Match.C                       Portable source including optional test code
+  Match.Doc                     Documentation for Match.C
+|
+|-------------- Bob Stout/Sreenath Chary file name processing functions ------
+|
+  Dirmask.C     Bob Stout       Complex pattern matching (calls patmat())
+  Patmat.C      Sreenath Chary  String pattern matching
+  Fln_Fix.C     Bob Stout       Crunch dot directories, verify DOS-valid paths
+  Flnorm.C      Bob Stout       Full file name normalization
+|
+|-------------- Bob Stout/Lynn Lively/David Fox sound & timing package -------
+|
+  Uclock.H      David L. Fox    Microsecond timing function header
+* Uclock.C        "   "   "     Microsecond resolution timing functions
+  Sound.H       Bob Stout       Sound functions header
+  Sound.C        "    "         Speaker control functions
+  Mktone.C       "    "         Tone generation functions
+  Playlib.C     Lynn R. Lively  Background music package
+  Playdemo.C    Bob Stout       Demo of backgroud music package
+|
+|-------------- Greg Messer's C/C++ comment extractor ------------------------
+|
+  Getcmt.C      Greg Messer     Extract comments from C/C++ source files
+  Testcmt.C       "    "        Test file for above
+|
+|-------------- Ray Gardner's scalar date function with calendar demo --------
+|
++ Scaldate.H    Ray Gardner     Scalar ("Julian") date header
+* Scaldate.C    Ray Gardner     Scalar ("Julian") date functions
+* Daynum.C      Bob Stout       Return statistics about a given date
+  Cal.C         Bob Stout       Calendar using Scaldate.C
+|
+|-------------- Ruurd Pels's FOSSIL access functions -------------------------
+|
+* X00Api.H                      C header w/ prototype declarations
+* X00Api.C                      C access functions
+|
+|-------------- Robert Mashlan's PRINT.COM interface functions ---------------
+|
+* Prnspool.H                    C header w/ prototype declarations
+  Prnspool.C                    PRINT.COM spool queue functions
+  Printq.C                      Demo program for above
+|
+|-------------- Robert Mashlan's memory allocation strategy functions --------
+|
+  Strat.H                       C header w/ prototypes and enum'ed constants
+  Strat.C                       C functions
+|
+|-------------- Jerry Coffin's word wrapping functions -----------------------
+|
+  W_Wrap.H                      C header w/ prototypes and enum'ed constants
+  W_Wrap.C                      C functions
+  Center.C                      Center a wrapped line
+|
+|-------------- Bob Stout's absolute sector read/write functions -------------
+|
+  Dos5Boot.H                    Header for boot sector access
+* Absdiskc.C                    C read and write functions
+  Absdisk.Asm                   Low-level code for disk I/O, DOS 2-5
+|
+|-------------- Mouse functions ----------------------------------------------
+|
+  Mouse.H       Bob Jarvis      Header w/ prototypes
+* Mouse.C       Bob Jarvis      Essential mouse stuff
+  Scrnpick.C    Ray McVay       Demo, retrieves text from screen using mouse
+|
+|-------------- Martin Maney's fast line buffered file input -----------------
+|
+  Xfile.H                       Header w/ prototypes
+  Xfile.C                       Contains xopen(), xclose(), xgetline()
+  Xtest.C                       Demo for above
+|
+|-------------- Functions to get command line options ------------------------
+|
+  Getopt3.C                     AT&T compatible getopt(3)
++ Getopts.H     Bob Stout       Header for Getopts.C
+* Getopts.C     Bob Stout       Scan command line for switches
+|
+|-------------- String searching functions -----------------------------------
+|
+* Pbmsrch.C     Jerry Coffin    Pratt-Boyer-Moore string search
+* Bmhsrch.C     Ray Gardner     Case-sensitive Boyer-Moore-Horspool search
+* Bmhisrch.C    Thad Smith      Case-insensitive Boyer-Moore-Horspool search
+* Bmhasrch.C    Ray Gardner     Case-insensitive BMH search w/ accented chars
+|
+|-------------- Bob Stout's extended keyboard stuff --------------------------
+|
+  Ext_Keys.H                    Header to define extended key codes
+  Ext_Keys.C                    A getch() work-alike for extended keyboards
+|
+|-------------- Mark Kimes ANSI screen code interpreter ----------------------
+|
+  Doansi.H                      Header file
+  Doansi_1.C                    Portable intepreter
+  Doansi_2.C                    OS-specific support functions
+|
+|-------------- David Gibbs' multitasker functions for Win, OS/2, & DV -------
+|
++ Tasker.Txt                    Description of Tasker functions
++ Tasker.H                      Header, structs, and prototypes
++ Tasker.C                      Detect multitasker and give up time slices
+|
+|-------------- PC compiler compatibility functions --------------------------
+|
+  Biport.H      Bob Stout       Header to port Borland _geninterrupt()
+  Biport.C      Bob Stout       Port Borland code using pseudovariables
+* Fmemops.C     Bob Stout       Emulate MSC's _fmemxxx() in BC++ & ZTC++
+  Ftime.H       Jeff Dunlop     BC++-style file date/time struct & prototypes
+  Ftime.C       Jeff Dunlop     BC++-style file date/time functions
+* Msc_Peek.C    Bob Stout       Add peek/poke to MSC
+  Pmerge.C      Bob Stout       Portable fnmerge(), _makepath() equivalents
+* Psplit.C      Bob Stout       Portable fnsplit(), _splitpath() equivalents
++ Strdup.C      Bob Stout       Portable strdup()
++ Strupr.C      Bob Stout       Portable strupr() strlwr()
+* Vidport.C     Bob Stout       Portable gotoxy(), clrscr() equivalents, etc.
++ Big_Mall.H    Bob Stout       Portably allocate memory > 64Kb
+|
+|-------------- Bob Stout's Portable PC exception handling -------------------
+|
+  Except.Doc                    Information on programs below
+  Cctrap.Asm                    Int 23h (Ctrl-C) trap
+  Cbtrap.Asm                    Int 1Bh (Ctrl-Break) trap
+  Trapflag.Asm                  Trap & flag Ints 23h & 1Bh
+  Trapdemo.C                    Demo of TRAPFLAG.ASM
+  Cerrinst.Asm                  Install DOS critical error handler
+  Cerrtrap.Asm                  DOS critical error handler
+|
+|-------------- David Nugent's iostreams (C++) tutorial ----------------------
+|
++ Iostutor.Txt                  Tutorial for following demo code
++ Myio.H                        Header for Myio.Cpp
++ Myio.Cpp                      Simple I/O class
++ Mystream.H                    iostream Interface for class Myio
++ Mystream.Cpp                  ios Interface implementation
++ Myline.H                      Simple line input classes
++ Myline.Cpp                    Implementation of myLine classes
++ Myiodemo.Cpp                  myio Loopback demo
++ Myio.Mak                      Makefile for Iostutor.Txt demo files
+|
+|-------------- David Nugent's simple string class ---------------------------
+|
++ Str.Doc                       Information on the string class
++ Str.H                         C++ header
++ Str.Cpp                       Simple, portable C++ string class
+|
+|-------------- Walter Bright's memory allocation debugging package ----------
+|
++ Mem.Txt                       Information on the Mem package
++ Toolkit.H                     Compiler-independent portability header
++ Mem.H                         Mem package header
++ Mem.C                         Mem package code
+|
+|-------------- DOS utilities as demos ---------------------------------------
+|
+  2Dlife.C      Jon Guthrie     2-D Life program
+  Bigfac.C      Carl Declerck   Do large factorials using ASCII multiply
+  Bincomp.C     Ray Gardner     Binary file comparison utility
+  Bordcolr.C    Bob Jarvis      Set border color
+  C_Cmnt.C      Thad Smith      Extract comments from a C source file
+  Cdir.C        Lynn R. Lively  Like DOS CHDIR except changes drives as well
+  Chbytes.C     Bob Stout       Edit binary files in place
+* Chmod.C       Bob Stout       Change DOS file attributes - wildcards, etc.
++ Cmdline.C                     Demonstation how to access command line args
+  Commconv.C    Jari Laaksonen  Convert C++ style comments to C style
+  Cursize.C     Bob Jarvis      Set the cursor size
+  Do.C                          Specify multiple command line commands
+  Dossort.C     Robert Mashlan  DOS SORT work-alike
+* Drivsrch.C    Marty Connely   Search for physical/logical drives
+  Dspclock.C    Mike Jones      On-screen TSR clock
+  Factor.C      Ray Gardner     Print prime factorization of a number (double)
+  Filcount.C    Bob Stout       Count files/directories
++ Flopcopy.C    Bob Stout       Copy a floppy to a HD subdirectory
+* Fraction.C    Thad Smith      Convert a real number to an integer ratio
+  Getvol.C      Bob Stout       Retrieve a disk volume label
+  Head.C                        Unix head work-alike
+  Hexdump.C     Paul Edwards    Hex/ASCII file dump utility
+  Ifactor.C     Ray Gardner     Print prime factorization of a number (long)
++ Inchcvrt.C    Bob Stout       Convert inches to feet/inches and fractions
+  Kbflip.C      Bob Stout       Set/clear Caps/Num/Scroll locks
+  Killff.C      Jerry Gore      Strip FF characters from text files
+                Erik VanRiper
+  Log.C         Robert Sprawls  Utility to log working time
+* Lsd.C         Bob Stout       DOS DIR enhanced work-alike
+  Lzhuf.C       Yoshi           Compression used in LHARC & LHA
+  Maze_1.C      Jon Guthrie     Maze generator
+  Maze_2.C                      Obfuscated maze generator
++ Maze_3.C                      Cute maze generator. Run, then enter size.
+  Morse.C       Mike Dodd       Convert strings to morse code
+  Mterm.C       David Harmon    Micro terminal (comm) program - use with X00
+* Mv.C          Ray McVay       Move files
+  Palndrom.C    Dan Hoey        Self-replicating palindrome - try it!
+  Permute1.C    Dave Chapman    Permute strings
+  Permute2.C    Jon Guthrie     Permute strings
+  Pi.C                          Calculate PI to 60,000 digits or more
++ Pr.C                          Print a file with headers & breaks
+  Query.C       Bob Stout       Timed query w/default for batch files
+  Rdxcnvrt.C    Bob Stout       Convert between number bases
+* Remtab.C      Robert Mashlan  Convert tabs to spaces
+* Rm_All.C      Bob Stout       Remove all files - now supports recursion
+  Roman.C       Jim Walsh       Convert Arabic number to Roman numeral
+  Setimeto.C    Bob Stout       Set a file's time/datestamp to match another's
+* Setvol.C      Bob Stout       Set, change, or kill a disk volume label
++ Split.C       Bob Stout       Split large text files into smaller ones
+  Stripeof.C    Bob Stout       Strip ^Z characters from DOS text files
+* Stub.C        Bob Stout       Truncate .OBJ (and other) files
+  Sunriset.C    Paul Schlyter   Computes length of day at any place on Earth
+* Tail.C        Joe Huffman     Print last n (default = 5) lines of a file
+                Ruurd Pels
++ Todaybak.C    Bob Stout       Back up today's files to a floppy
+  Touch.C       Ray L. McVay    TC/TC++/BC++ set file time/date stamp
+  Treedir.C     Bob Stout       Recursive directory lister
+  Uuencode.C    Don Kneller     Unix uuencode
+  Uudecode.C    John Lots       Unix uudecode
+  Wc.C          Jay Elkes       Like Unix wc, counts lines, words, chars
+  Where.C                       Search for a file
+|
+|-------------- Various flavors of grep utilities ----------------------------
+|
++ Jgrep.C       Jerry Coffin    Simple and portable
++ Grep.C        DECUS           "Real" grep - free with some strings

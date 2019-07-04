@@ -1,0 +1,459 @@
+The following are a list of resources that I've put together from
+recommendations in the FidoNet C_Echo.  These include books,
+magazines and compiler vendors.
+
+The format for book entries is as follows:
+
+Author _Title_, ISBN, Publisher, Year, List Price (Comments --
+  Recommmended-By)
+
+Prices are in $US unless otherwise specified.  Where a book has been
+recommended by multiple persons, I've left off the names that don't
+have comments.  Books are in alpha order by author's last name, or
+title if the author is unknown or unattributed.  When there is more
+than one ISBN or price, the following suffixes will be used:
+
+.p -- paperback
+.h -- hardback
+.d -- with disk
+
+Magazine information includes the name of the magazine and the address
+and subscription rates.
+
+I cannot list information I do not have.  It is possible that some
+information may be missing for a particular book.  Comments are
+condensed from the messages I got the recommendation from and may or may
+not accurately describe the book.   Lest they take over C_ECHO, any and
+all additions/corrections/suggestions should be sent to me netmail at
+1:106/2000.25.
+
+[DISCLAIMER:  I make no promises real or implied as to the usefulness of
+any of the books here listed.  The reason for the 'recommended by' is
+to give you some idea of who thought the book was good so you can find
+books that are recommended by folks whose messages make particular sense
+to you.  (Or folks who forgot to mention author/ISBN/publisher/price so
+you can harass them.)  These people are not in any position to promise
+you anything, either.]
+
+In response to a request by the FidoNet C_Echo moderator, I'm
+soliciting longer blurbs about any and all resources listed here.
+Please answer the following questions, either individually, or cover
+the answers to most of them in a paragraph or so about the book.
+
+a) Title or other information sufficient for me to determine what
+   the heck you're writing about
+b) When you last read/looked at the book (if it's been a long time,
+   I'll need to take that into account when selecting whose comments
+   to use)
+c) A brief description.
+d) A list of subjects where the book should be listed
+e) It's target audience (pick one or more of the following:
+   beginner, intermediate, skilled, advanced, expert)
+f) Your opinion of the useability/readability/understandibilty of
+   the book
+g) What types of folks you'd recommend it to
+h) What types of folks you'd recommend to pass it by
+
+...and anything you think I forgot.
+
+Your cooperation will be appreciated and your name will be listed as
+a contributor.
+
+- J-Mag Guthrie
+1:106/2000.25
+1:106/1393
+
+----[ Beginning of book list - last updated 8 Oct 1993 ]----------------------
+
+Abramowitz, Milton and Stegun, Irene  _Handbook of Mathematical
+  Functions_, 0-486-61272-4, Dover Publications, 1972, $21.95 (Bob
+  Jarvis)
+
+Abrash, Michael _Power Graphics Programming_, 0-88022-500-9, QUE, 1989
+  (out of print)
+
+_Advanced C Programming_, Brady Publishing Group
+
+Aho, Sethi, and Ullman _Compilers: Principles, Techniques, and Tools_
+
+Atkinson and Atkinson _Using Borland C++_, QUE (Steven Owen)
+
+Banahan, Mike _The C Book_ (Tom Donahue)
+
+Bentley, Jon, _More Programming Pearls - Confessions of a Coder_,
+  0-201-11889-0, Addison-Wesley, 1990, $18.25
+
+Bentley, Jon _Programming Pearls_, 0-201-10331-1, Addison-Wesley, 1986,
+  $18.25
+
+Bentley, Jon _Writing Efficient Programs_
+
+Booch, Grady  _Object Oriented Design with Applications_, 0-8053-0091-0,
+  Benjamin/Cummings Publishing, 1991
+
+Brooks, Fred  _The Mythical Man-Month: Essays on Software Engineering_,
+  0-201-00650-2, Addison-Wesley, 1975
+
+Brown, Ralf and Kyle, Jim, _PC Interrupts_, 0-201-57797-6, Addison-
+  Wesley, 1991, $32.95
+
+Campbell, Joe  _C Programmer's Guide to Serial Communications_,
+  0-672-22584-0, Howard W. Sams & Co, 1987, $26.95 (Does not talk about
+  RTS/CTS handshaking [which is] vital for creating a modern terminal
+  program. -- Jon Guthrie)
+
+Davis, Stephen R. _Hands-On Turbo C++_, 0-201-57052-1, Addison-Wesley
+  (Daniel Lo)
+
+_DOD Programmer's Reference, 3rd Edition_ Que (Robert Johnstone)
+
+Duncan, Ray; Petzold, Charles; Shulman, Andrew; Baker, M. Steven;
+  Nelson, Ross P.; Davis, Stephen R.; Moote, Robert _Extending DOS_,
+  0-201-56798-9, Addison-Wesley, 1992, $26.95
+
+Ellis, Margaret and Stroustrup, Bjarne  _The Annotated C++ Reference
+  Manual_, 0-201-51459-1, Addison-Wesley, 1990, (Bob Jarvis)
+
+Gorlen, Keith E.; Orlow, Sanford M.; and Plexico, Perry S. _Data Abstraction
+  and Object-Oriented Programming in C++_, 0-471-92346-X, John Wiley &
+  Sons, 1990 (Bob Stout)
+
+Ferraro, Richard _The Programmer's Guide to the EGA and VGA Cards, 2nd
+  Edition_ 0-201-57025-4, Addison Wesley, $34.95, CAN$44.95
+
+Foerster, Scott _The Printer Bible_, 0-88022-512-2, QUE Books, 1990,
+  $24.95, CAN$31.95, UK#22.95
+
+Goodwin, Mark _Serial Communications in C and C++_, MIS Press, $29.95,
+  $49.95d
+
+Hekmatpour, Sharam _C++ - A Guide for C Programmers_, 0-13-109471-8,
+  Prentice Hall, 1990
+
+Harbison, Samuel P. and Steele, Guy L. Jr. _C, a Reference Manual (third
+  edition)_, 0-13-110933-2, Prentice Hall, 1991
+
+Hogan, Thom  _The Programmer's PC Sourcebook (Second Edition)_,
+  1-55615-321-X, Microsoft Press, 1991, $39.95
+
+Holub, Allen _Compiler Design in C_, 0-13-155045-4, Prentice Hall, 1990
+
+Horton, Mark R. _Portable C Software_, 0-13-868050-7, Prentice Hall,
+  1990 (Bob Stout)
+
+James, Geoffrey _The Tao of Programming_, 0-981137-07-01-795
+
+Jourdain, Robert and The Peter Norton Computing Group _The Programmer's
+  Problem Solver_
+
+Kay, David C., and Levine, John R. _Graphics File Formats_
+  0-8306-3059-7.p, 0-8306-3060-0.h, Tab/Windcrest/McGraw-Hill, 1992
+  (primarily a file format reference and does not give programming
+  examples -- David Harmon)
+
+Kernighan, Brian W. and Ritchie, Dennis M. _The C Programming Language_
+  0-13-11-163-3, 0-13-110362-8, Prentice Hall (two editions, informally
+  K&R and K&R2)
+
+Knuth, Donald _Sorting and Searching_, Addison Wesley (Knuth is a Vulcan
+  -- Terry Carmen)
+
+Kosko, Bert _Neural Networks and Fuzzy Systems: A Dynamical Systems
+  Approach to Machine Intelligence_, 1992, $56.95 (2 Disks -- Eric Ford)
+
+Koenig, Andrew _C Traps and Pitfalls_, 0-201-17928-8
+
+LaFore, Robert _Turbo C, Programming for the PC_ Waite Group (Ray
+  Parker)
+
+Lapin, J.E. (pseudonym) _Portable C and Unix System Programming_,
+  0-13-686494-5, Prentice-Hall, 1987 (Bob Stout)
+
+Leblanc, Gerard _Maåtrise de Turbo C_, Eyrolles Editions (in French --
+  Francis Peree)
+
+Lewine, Donald _POSIX Programmer's Guide_, 0-937175-73-0, O'Reilly &
+  Associates, Inc., 1991, $34.95
+
+Lindley, Craig A. _Practical Image Processing in C_, 0-471-54377-2 (Joe
+  Angert)
+
+Mayer, Bertrand _Object-oriented Software Construction_, 0-13-629049-3,
+  Prentice Hall (Mike Taylor)
+
+McCord, James W. _C Programmer's Guide to Graphics_, 0-672-22784-3, SAMS,
+  $29.95, $37.95 CAN (Branko Dragicevic)
+
+McGregor, John and Sykes, David  _Object-Oriented Software Development:
+  Engineering Software for Reuse_, 0-442-00157-6, Van Nostrand Reinhold,
+  1992 (Bob Jarvis)
+
+_Microsoft MS-DOS Programmer's Reference_, 1-55615-329-5, Microsoft
+  Press, 1991, $24.95 (Bob Jarvis)
+
+Nance, Barry _Network Programming in C_, Que Books (Steve Cox)
+
+Nelson, Mark _The Data Compression Handbook_, 1-55851-214-4,
+  1-55851-216-0 M&T Books, $29.95, $36.95.d  (Oliver Reubens)
+
+Norton, Peter and Wilton, Richard _The NEW Peter Norton Programmer's
+  Guide to the IBM PC & PS/2_, 1-55615-131-4, Microsoft Press
+
+Oualline, Steve _Practical C Programming_, 0-937175-65-X, O'Reilly &
+  Associates (David Gersic)
+
+Perry, Greg and Johnson, Marcus _Turbo C++ By Example_ 0-88022-812-1,
+  Que
+
+Petzold, Charles _Programming Windows 3.1_, 1-55615-395-3, MicroSoft
+  Press
+
+Plauger, P. J. _The Standard C Library_, 0-13-131509-9, Prentice Hall,
+  1992
+
+Plauger, P. J. _Standard C: Programmer's Quick Reference_,
+  1-55615-158-6, Microsoft Press, 1989, $7.95
+
+Press, William H.; Flannery, Brian P.; Teukolsky, Saul A.; and
+  Vetterling, William T., _Numerical Recipes: The Art of Scientific
+  Computing_, 0-521-30811-9, Cambridge University Press, 1986
+
+Press, William et. al.  _Numerical Recipes in C_ (the C version of the
+  above -- J-Mag)
+
+Qualline, Steve _C Elements of Style_ 1-55851-291-8, M&% Books
+
+Radcliffe, Robert _Encyclopedia C_ 0-89588-655-3 (Microsoft C specific)
+
+Remer, Daniel and Dunaway, Robert _Legal Care for Your Software (4th
+  Edition)_,  87337-037-6, RDS Publishing Company, $39.95
+
+Rimmer, Steve _Bit-Mapped Graphics_, 0-8306-3558-0, Windcrest/McGraw-
+  Hill
+
+Rimmer, Steve _Supercharged Bit-Mapped Graphics_, 0-8306-3788-5,
+  Windcrest/McGraw-Hill
+
+Rose, Charles G. _Programmer's Guide to NetWare_, 0-07-607029-8,
+  Mcgraw-Hill
+
+Salone, M. J. _How to Copyright Software_, NOLO Press. (George Milliken)
+
+Schildt, Herbert _Advanced C_, 0-07-881348-4, Osborne McGraw-Hill,
+  $21.95
+
+Schildt, Herbert _ANSI C Made Easy_, 0-07-881500-2, Osborne McGraw-Hill,
+  $19.95
+
+Schildt, Herbert _ANSI C Made Easy (Spanish)_, 84-76156030, Osborne
+  McGraw-Hill
+
+Schildt, Herbert _Artificial Intelligence Using C_, 0-07-881255-0,
+  Osborne McGraw-Hill, $24.94
+
+Schildt, Herbert _The Art of C_, 0-07-881-691-2.d, Osborne-McGraw-Hill,
+  1991, $39.95.d
+
+Schildt, Herbert _Born to Code in C_, 0-07-881468-5, Osborne
+  McGraw-Hill, $28.95
+
+Schildt, Herbert _C: The Pocket Reference_, 0-07-881321-2, Osborne
+  McGraw-Hill, $5.95
+
+Schildt, Herbert _C: The Pocket Reference (Spanish)_, 84-76152175,
+  Osborne McGraw-Hill
+
+Schildt, Herbert _C: Power User's Guide_, 0-07-881307-7, Osborne
+  McGraw-Hill, $22.95
+
+Schildt, Herbert _C: Power User's Guide (Spanish)_, 84-76153813, Osborne
+  McGraw-Hill
+
+Schildt, Herbert _C: The Complete Reference_, 0-07-881538-X, Osborne
+  McGraw-Hill, $28.95
+
+Schildt, Herbert _C++: The Complete Reference_, 0-07-881654-8, Osborne
+  McGraw-Hill, $29.95
+
+Schildt, Herbert _Teach Yourself C_, 0-07-881596-7, Osborn McGraw-Hill,
+  $19.95
+
+Schildt, Herbert _Turbo C++: The Complete Reference_, 0-07-881535-5,
+  Osborne McGraw-Hill, $29.95
+
+Schildt, Herbert _Using Turbo C++_, 0-07-881610-6, Osborne McGraw-Hill,
+  $24.95
+
+Schulman, Andrew, et al.  _Undocumented DOS_, 0-201-570649-5, Addison Wesley,
+  1990, $39.95 (one portion of..."et al."...Ralf Brown -- Brian
+  Dunworth)
+
+Schwaderer, David _C Programmer's Guide to NETBIOS_ (Dimitri Van de
+  Ville)
+
+Sedgewick, Robert _Algorithms in C_, 0-201-51425-7, Addison-Wesley,
+  1990
+
+Selby, Samual M. _Standard Mathematical Tables_, The Chemical Rubber
+  Company, 1970
+
+Shlaer, Sally and Mellor, Stephen  _Object Lifecycles : Modeling the
+  World in States_, 0-13-629940-7, Yourdon Press, 1992 (Bob Jarvis)
+
+Shlaer, Sally and Mellor, Stephen  _Object-Oriented Systems Analysis :
+  Modeling the World in Data_, 0-13-629023-X, Yourdon Press, 1988 (Bob
+  Jarvis)
+
+Stevens, Al _C Database Development, 2nd Ed._, 1-5528-135-5, MIS Press,
+  $24.95, $49.95.d
+
+Stevens, Al _Extending Turbo C Professional_
+
+Stevens, Al _Turbo C Memory Resident Utilities, Screen I/O and
+  Programming Techniques_, 0-943518-35-0, MIS Press
+
+Stoltz, Axel _The Soundblaster Book_ 1-55755-164-2, Abacus, 34.95,
+  CAN$44.95
+
+Straker, David _C Style: Standards & Guidelines_ 0-13-116898-3,
+  Prentice-Hall
+
+Stroustrup, Bjarne _The C++ Programming Language - 2nd Edition_
+  (more current than the ARM, but less official -- Bob Stout)
+
+_Supercharged Bitmapped Graphics_ TAB books (Jim Mooney)
+
+Swan, Tom _Learning C++_, 0-672-22785-1, SAMS, 1991 (Comes with working
+  demo version of Zortech C++ -- Bram Smits)
+
+Swan, Tom _Mastering Borland C++_, 0-672-30274-8, SAMS, 1992,
+  $39.95d (ANSI C, C++, extensive examples and answers for the
+  exercises -- Scott Remick)
+
+Tisher, Michael _PC Intern_, 1-55755-145-6 ( Patrick Tousignant)
+
+Tondo, Clovis L., Nathanson, Andrew, Yount, Eden _Mastering Make_,
+  0-13-554619-2, Prentice Hall, 1992, $25.75
+
+Traister, Robert J  _Mastering C Pointers_, 0-12-697408-X, Academic
+  Press, 1990 (Tom Donahue)
+
+Van Wyk, Christopher J. _Data Structures and C Programs_,0-201-16116-8,
+  Addison-Wesley (David Gersic)
+
+Voss, Greg and Chui, Paul (unknown title), 0-07-881526-6,
+  Borland/Osborne/McGraw Hill (a C++ tutorial -- Phil Sharp)
+
+_The Waite Group's Essential Guide to ANSI C_, 0-672-22673-1, Howard W.
+  Sams, 1989, $7.95, (out of print but worth searching for - the best
+  pocket-sized C handbook available -- Bob Stout)
+
+_The Waite Group's New C Primer Plus_, 0-672-22687-1 (Dale Furneaux)
+
+Waite and Prata, _C:  Step by Step_, 0-672-22651-0
+
+Wiener, Richard and Pinson, Lewis  _An Introduction to Object-Oriented
+  Programming and C++_, 0-201-15413-7, Addison-Wesley, 1988 $31.68 (Bob
+  Jarvis)
+
+Wilton, Richard  _Programmer's Guide to PC & PS/2 Video Systems_,
+  1-55615-103-9, Microsoft Press, 1987, $24.95 (Bob Jarvis)
+
+Young, Michael J. _System Programming in Microsoft C_, Sybex (Nhan Tran)
+
+----[ End of book list ]------------------------------------------------------
+
+----[ Begin magazine list ]---------------------------------------------------
+
+DDJ  (Dr. Dobbs Journal)
+P.O. Box 56188
+Boulder, CO 80322-6188
+U.S.A.
+Canada & Mexico: $45/yr (surface)
+Other countries: $70/yr (air)
+Domestic (US): #29.97/yr
+
+The C Users Journal
+1601 W. 23rd St., Suite 200
+Lawrence, KS 66046-9950
+US discount rate: $29.95/yr
+Canada/Mexico: $54/yr
+Other countries: $65/yr (air)
+
+C++ Report
+Subscriber Services, Dept CPR
+P.O. Box 3000
+Denvill NJ 07834-9979
+Domestic US: $69/yr
+Foreign & Canada: $94/yr (air)
+
+AI Expert
+P.O. Box 51241
+Boulder, CO 80321-1241
+US discount rate: $32/yr (basic rate: $42)
+Canada/Mexico: $32+$6/yr
+Other countries: $32 +15/yr (surface) or +40/yr (air)
+
+----[ End magazine list ]-----------------------------------------------------
+
+----[ Begin support phone list ]----------------------------------------------
+
+Borland (Turbo C/C++, Borland C/C++)
+  Customer Service:
+       Customer Service (all products)              408-461-9000
+           (7am-4pm PT Monday-Friday)
+       Order Desk (Credit Card orders only)         800-331-0877
+           (7am-4pm PT Monday-Friday)
+  Technical Support:
+  Technical support for the following products is available from
+  6am-5pm PT, Monday-Friday:
+       C++                                          408-461-9133
+       Paradox Engine for C/C++                     408-461-9133
+       Resource Workshop for C/C++                  408-461-9133
+       Turbo Vision for C/C++                       408-461-9133
+  900-Advisor Line
+  When you need a fast response or a more advanced level of
+  technical support, you can call the 900-Advisor Line.  Technical
+  support for the following products is available from 6am-5pm PT,
+  Monday-Friday.  You gain access within one minute.  Each call is
+  $2.00 per minute (the first minute is free).
+       Borland C++ (Windows)                        900-555-1002
+       Borland C++ (DOS)                            900-555-1004
+  Other Services:
+  The following services are available 7 days a week, 24 hours a
+  day.
+       Online Automated Support (modem)
+           (8 data bits, no parity, 1 stop bit)     408-431-5250
+       TechFax (Automated FAX retrieval)            800-822-4269
+       Download Bulletin Board System (modem)
+           (8 data bits, no parity, 1 stop bit)     408-439-9096
+  For more information about the services listed below, you may
+  order the appropriate document from our TechFax system by dialing
+  800-822-4269.
+                                                    TechFax
+       Service                                      Document
+       Online Automated Support                     9606
+       TechFax                                      9652
+       Download Bulletin Board System               9604
+
+Dunfield Develpment Systems (Micro C)
+                Dunfield Development Systems
+                P.O. Box 31044
+                Nepean, Ontario (Canada)
+                K2B 8S8
+
+    VOICE:  (613) 256-5820 [Between 0800-1900 EST please!]
+    FAX:    (613) 256-5821 [0800-1900 EST Mon-Fri]
+    BBS:    (613) 256-5820 [1900-0800 EST Mon-Fri, All day Sat-Sun]
+            (300/1200/2400 Dial '2' when autoattendant answers).
+
+Mix Software
+        Mix Software
+        1132 Commerce Dr.
+        Richardson, Tx 75081
+
+        Order:  1-800-333-0330
+        Tech:   1-214-783-6001
+        Fax:    1-214-783-1404
+
+----[ End support phone list ]------------------------------------------------
