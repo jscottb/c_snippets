@@ -1,0 +1,283 @@
+Q:  Which PC C/C++ compiler is best and what should I buy?
+
+A:  This is perhaps the commonest of Frequently Asked Questions (FAQ's),
+especially by beginning C'er. The honest answer is that there is no "best"
+compiler and what may be best for you depends to a large degree on what
+you'll be using it for. The PC C/C++ compiler market is quite brutal and the
+companies that have survived have done so because some number of people think
+each of them makes the "best" compiler.
+
+    With the preceding caveat in mind, following are some summaries of the
+current crop of C/C++ compilers with some of their strengths and weaknesses.
+Additional recommended reading are the C/C++ compiler reviews appearing in PC
+Magazine. PC Mag's reviews for many years were highly slanted and suspect,
+but in the past 2 years, have become commendably objective and even-handed.
+
+
+MIX POWER C
+-----------
+
+Power C is the least expensive PC C compiler on the market. The compiler
+itself is $20, and an additional $30 will buy their source-level debugger
+along with the complete library source code with an assembler.
+
+So, what's the catch?
+
+None, actually. Power C is a quite decent and ANSI-conforming compiler which
+compiles relatively tight, fast code relatively quickly. It's biggest
+drawback is its use of a non-standard object file format which obviates
+object-level compatibility with any other compiler using Microsoft/Intel
+standard object file formats. Another problem is lack of support from 3rd
+party library vendors. Although Mix sells a wide range of libraries
+themselves, it's difficult to convince a vendor to produce a $100 add-on
+library for a $20 compiler.
+
+On the plus side, Power C comes with the best user's manual for students in
+the business. The beginner's tutorial section has enabled many beginning C
+programmers to get up to speed without spending another dime on any other
+textbooks. Should you want more instruction, Mix sells a package including
+Power C with the library source and debugger along with the book "Master C"
+for only $60.
+
+Power C's primary technical claim to fame is its floating point which
+challenges the industry leader, Watcom, in many cases. It's also the only
+remaining C compiler which can run effectively on small or older machines
+without extended memory (SC++ can also, but is limited to *very* small
+programs).
+
+
+
+MICROSOFT VISUAL C++ (VC++)
+---------------------------
+
+Microsoft's professional compiler now comes in two versions with the same
+name. The profession version replaces Microsoft C/C++, version 7.0. The
+regular version replaces Microsoft Quick C for Windows. The primary
+difference is the price and the extras since each requires at least a 386
+processor, 4 Mb of *available* extended memory, and a DPMI server such as
+Windows 3.1. If you don't have the machine resources, you can't use VC++.
+
+On the plus side, VC++ is an excellent C++ compiler and generates executables
+which may not always be smaller than Borland, but usually execute faster.
+Microsoft's C compilers are still the standard for PC C compilers and it
+shows in the ready availability of 3rd party libraries supporting it. Support
+for Windows programming is excellent with tools only rivaled by SC++ (which is
+shipped with licensed copies of VC++'s MFC 2.0 class library).
+
+Compile times with full optimization are still quite sluggish, but using the
+quick compile option can be provide acceptable results.
+
+
+BORLAND C++ (BC++)
+------------------
+
+BC++ carries on Borland's tradition of providing excellent bang for the buck.
+The latest release (3.1) of their professional compiler is an attractive
+alternative to shops also considering VC++. BC++ isn't as demanding as VC++
+and only requires a 286 and 2 Mb of *available* extended memory to run. A full
+32-bit version is currently available for OS/2 2.1. Windows programming
+support is also quite good, but has been leapfrogged somewhat by VC++ and SC++
+for the time being.
+
+Borland's tools are uniformly excellent, but the compiler still suffers a bit
+in comparison to the industry's technological leaders, Microsoft, Watcom, and
+Symantec - although the gap is closing. As with VC++, it's an excellent C++
+compiler and enjoys widespread support among 3rd party library vendors. Like
+all Borland compilers, ease of use was a design priority, all oriented to the
+excellent IDE.
+
+Borland recently alienated many of their loyal customers with the release of
+BC++ 4.0. In addition to the normal version x.0 bugs that we all expect, the
+new version came with no DOS IDE, vastly slower compilation times (with no
+apparent increase in optimization to justify the slowdown), and an odious new
+license agreement that their lawyers quickly rescinded in the face of the
+massive desertion of corporate clients. They're working hard to get folks to
+like them again, but for the first time in their corporate life, they have
+seriously dissatisfied customers and aren't quite sure how to handle it.
+
+
+TURBO C++ (TC++)
+----------------
+
+TC++ is to Borland's C++ compiler targeted at the hobbyist market. The latest
+version (TC++ 3.1) raised quite a stir when Borland released it requiring at
+least a 286 processor and 1 Mb of *available* extended memory above the
+normal 640K DOS limit.  Many hobbyists running on older XT's, or machines
+without the excess memory capacity have therefore failed to upgrade to the
+new release.
+
+If you have the machine to support it, TC++ has the usual Borland attributes
+of extreme ease-of-use, attractive Integrated Development Environment (IDE),
+and good supporting tools. Based on the facts of BC++ 4.0 cited above, it has
+become the compiler of choice for many Borland loyalists.
+
+
+SYMANTEC C++ (SC++)
+-------------------
+
+Symantec C++ (nee Zortech C++) was the industry's first C++ compiler, but fell
+behind in tracking the C++ language spec. Bought out by Symantec in 1991, the
+C compiler was always excellent and now its C++ compiler rates among the best.
+
+SC++ supports DOS, Mac, Unix, Win32s, and NT (OS/2 was supported in previous
+Zortech releases and may be again) using an extremely powerful new object-
+oriented Windows-hosted IDE. It includes excellent libraries and add-ons
+including a TSR library, swapping spawn functions, a royalty-free 32-bit DOS
+extender, and an excellent set of ancillary C and C++ tools libraries
+including MFC 2.0 as previously noted. VC++ can generate true 32-bit code and
+has a switch for generating Pentium code. At the same time that Symantec
+bought Zortech, they also bought Multiscope, whose debuggers are included in
+the package. As with VC++, SC++ includes excellent tools for quickly
+developing Windows applications.
+
+SC++ has always been in the forefront of optimizer technology along with
+Microsoft and Watcom. A major feature is full IEEE-754 and NCEG (Numerical C
+Extensions Group (an ANSI working committee trying to make C a suitable
+replacement for FORTRAN) compatibilty.
+
+The only negative for the current release is a poor reputation which arose
+largely during the period following the Symantec acquisition of Zortech. With
+6.1, these now appear mostly fixed. With the 6.1 release, support of DOS
+graphics has been dropped, but an updated version of the excellent Flash
+Graphics package shipped with the Zortech versions is available from FlashTek,
+which also supplies improved verions of the 32-bit DOS extender and the
+pre-Symantec debugger.
+
+One caveat - if you got the 6.0 release, be sure to get the free 6.1 update!
+
+
+WATCOM C/C++ (WC++)
+-------------------
+
+Watcom is the technological industry leader, performing feats of optimization
+and floating point speed other vendors only dream of. The cost is compile
+speed, which has been described (somewhat unfairly) as glacial. For all its
+technical excellence, WC++ is still a niche market compiler like SC++. As
+such, it's 3rd party support is poor, but many have found that Microsoft C
+libraries will work just fine with WC++. Like SC++, and unlike BC++ and VC++,
+WC++ provides documented support for embedded systems work, although not to
+nearly the same degree as Metaware (see below).
+
+Also, like SC++, WC++ supports 32-bit code generation. WC++ is the compiler
+of choice for many OEMs, such as Novell, who want only the best supporting
+code for their products. MSC/VC++ compatibility is excellent, but watch out
+for Watcom's sensitivity to proper _cdecl declarations, implemented in Watcom
+via a pragma rather than as a built-in language feature. Watcom sells both
+16- and 32-bit versions of its C/C++ compiler. The best deal is to buy the
+32-bit compiler and then purchase the 16-bit upgrade pack.
+
+Where Watcom really shines is its support for a multitude of environments
+with the same compiler(s). Supported are DOS, Win3.1, Win32s, NT, OS/2 (1.x &
+2.x), Netware 386, AutoCAD ADS, QNX, Phar Lap and Rational DOS extenders.
+With such a bewildering array of targets, compilation is relatively
+straightforward but the linker has a steep learning curve.
+
+Watcom remains the only one of the "big name" compilers to not ofer an IDE,
+if that's important to you or you don't own a "real" programmer's editor.
+
+
+METAWARE HIGH-C/C++ (HC++)
+--------------------------
+
+HC++ is the darling of some segments of the embedded systems market. As such,
+it's a lot like WC++, only not quite as good and a lot weirder since it
+offers detailed control over every aspect of the executable. Most WC++
+comments apply, except for the ones relating to quality of generated code.
+HC++'s code is quite good, but seems to be showing its niche market
+orientation (any one remember Manx Aztec C?)
+
+
+TOPSPEED C/C++ (TSC++)
+----------------------
+
+TSC++ has had a rocky life, getting off to a late start in the market and
+never having really quite caught on. Originally, TSC++ was a Turbo C clone
+which shared tools and environments with its sister Modula-2 compiler. More
+recent versions have extended this by using a modular approach with an
+environment supporting "plug-in" compilers for various languages which can
+all be used together. The company was recently acquired by Clarion.
+
+TSC++'s undisputed biggest strength is its smart linker and various features
+added to facilitate mixed-language programming (Modula-2, for example,
+supports multi-threaded code). Using this technology, you can count on TSC++
+to almost always produce the smallest executables for a given piece of source
+code. The library, written almost exclusively in assembly, is also excellent
+and contributes to the frugal use of run-time memory. Unfortunately,
+compiler-generated code is typically not of the same quality.
+
+Drawbacks include almost non-existant 3rd party support and the pervasive IDE
+which feels more at home to Modula-2 programmers than C programmers.
+
+
+GNU C/C++ (GCC, G++)
+--------------------
+
+Available from the Free Software Foundation, GCC and G++ are the only
+compilers listed here available for free without a guilty conscience.
+Originally written for Unix systems, there are several DOS ports available,
+all of which require some sort of DOS extender technology built-in in order
+to work in DOS's limited memory. OS/2 ports obviously don't share this
+limitation. Along with SC++, WC++, and HC++, the gnu compilers round out the
+list of full ISO/ANSI/ARM compilers with explicit support for embedded
+systems.
+
+Performance is decent, but not earth-shattering, and executable tends to
+exhibit lots of bloat. If you plan to use one of these to write commercial
+code, be sure and read the license agreement *very* closely.
+
+
+DUNFIELD MICRO-C
+----------------
+
+There have been many "small" or "tiny" C's over the years, some useful for
+teaching the rudiments of compiler construction, others not much use for
+anything. Small C's typically lack structs, unions, bit fields, and even long
+integers.
+
+Why bother listing this one then?
+
+First of all, Micro-C is an evolving product which, as of version 3, now
+includes many features such as structs and unions not normally associated
+with small C's.
+
+Also, the source code (available when you register the shareware version) is
+quite decent and really can teach you something about compiler internals. But
+Micro-C is genuinely useful for a lot more reasons.
+
+The author also produces cross-assemblers for a variety of microprocessors
+and provides plug-in code generators for his C compiler to use with those
+chips as well. The 80x86 version comes ready to compile either PC or embedded
+code. Included in the PC library are support for writing TSR's, interrupt-
+driven serial I/O, and screen windowing. Amazingly, it also sports an
+optimizer, but requires MASM or equivalent for compiling PC applications.
+
+Supporting small and tiny model only, Micro-C executables are phenomenally
+small. "Hello world" programs that run 5-6K on other compilers run under 600
+bytes when compiled with Micro-C.
+
+One other point needs to be mentioned with respect to Micro-C...  Although it
+is *a* small C, it has no code commonality with *the* Small C from the book
+of the same name. This is important since there are a number of variants of
+Small C available, all not much better than the original.  Micro-C, OTOH, was
+written by Dave Dunfield completely from scratch and is a *much* better
+designed piece of code and certainly much more instructive to fledgling
+compiler writers. His better design is evinced in code quality and execution
+speed.
+
+
+PCC
+---
+
+The Personal C Compiler is available as shareware. It used to be marketed as
+the deSmet C compiler and had a generally good reputation for quick compile
+times and tight code. Unfortunately, the product hasn't been seriously
+upgraded in quite a while and can't stand too much comparison. It's horribly
+non-ANSI compliant, has a weaker set of library functions than Micro-C,
+features non-standard file formats, and is generally incompatible with most
+published C code
+
+If price is your concern, Mix Power C costs less to buy than PCC and offers
+better performance along with the ANSI compliance that PCC lacks. If you plan
+on using an unregistered copy, Gnu C/C++ are vastly superior and are legally
+free. If you're attracted to its tight, fast code and can live with quirks
+and without ANSI compliance, go with Dunfield Micro-C.
