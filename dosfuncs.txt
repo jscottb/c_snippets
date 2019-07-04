@@ -1,0 +1,34 @@
+The following SNIPPETS files are either MS/PC-DOS specific or have limited
+application in other environments:
+
+Make.Ini       Ansiscrn.H     Dd_Struc.H     Portable.H     Scrnmacs.H
+8087_Sav.Asm   Coldboot.Asm   Cpucheck.Asm   Hires.Asm      Ndpcheck.Asm
+Strecpy.Asm    Addhndls.C     Addpath.C      Ansiload.C     Ansisys.C
+Assignpr.C     Atr2Ansi.C     Break.C        Changprn.C     Checkexe.C
+Chgext.C       Clock.C        Compiler.C     Cursor.C       Doscopy.C
+Droptime.C     Drvalid.C      Drvs.C         Dspdtst.C      Faskbhit.C
+Favail.C       Files.C        Fndislot.C     Format.C       Fsize.C
+Getdcwd.C      Getkey.C       Getseg.C       Glbl_Env.C     Grafline.C
+Hugeread.C     Hugesort.C     Iscons.C       Isfopen.C      Isnetdr.C
+Isramdsk.C     Isshift.C      Iswprot.C      Isxkbrd.C      Joystick.C
+Kb_Data.C      Keylocks.C     Keywatch.C     Lsary.C        Mcb_Env.C
+Memavail.C     Msb2Ieee.C     Noctrlc.C      Noreset.C      Os_Id.H
+Os_Id.C        Pcnvrt.C       Prtoggle.C     Prtscrn.C      Prtstat.C
+Reboot.C       Scroll.C       Setenvar.C     Shel2Dos.C     Tp6Tod.C
+Truename.C     Unix2Dos.C     Vfname.C       Video.C        Whicharc.C
+Which_C.Txt    Environ.Txt    Evsavres.Txt   Vio.H          Vio.Asm
+Scrnsave.C     Int2E.Asm      Ccomcall.C     Dirent.H       Rfind1St.C
+Posixdir.C     Posix_Ls.C     Flnorm.C       Uclock.H       Uclock.C
+Sound.H        Sound.C        Mktone.C       Playlib.C      Playdemo.C
+X00Api.H       X00Api.C       Prnspool.H     Prnspool.C     Printq.C
+Strat.H        Strat.C        Dos5Boot.H     Absdiskc.C     Absdisk.Asm
+Mouse.H        Mouse.C        Scrnpick.C     Ext_Keys.H     Ext_Keys.C
+Doansi.H       Doansi_1.C     Doansi_2.C     Tasker.Txt     Tasker.H
+Tasker.C       Biport.H       Biport.C       Fmemops.C      Ftime.H
+Ftime.C        Msc_Peek.C     Pmerge.C       Psplit.C       Vidport.C
+Big_Mall.H     Except.Doc     Cctrap.Asm     Cbtrap.Asm     Trapflag.Asm
+Trapdemo.C     Cerrinst.Asm   Cerrtrap.Asm   Bordcolr.C     Cdir.C
+Chmod.C        Cursize.C      Do.C           Drivsrch.C     Dspclock.C
+Filcount.C     Flopcopy.C     Getvol.C       Kbflip.C       Lsd.C
+Mterm.C        Rm_All.C       Setimeto.C     Setvol.C       Stripeof.C
+Todaybak.C     Touch.C        Treedir.C

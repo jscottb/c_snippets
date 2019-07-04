@@ -1,0 +1,5 @@
+To blank EGA/VGA screen - read flipflop at 0x3DA, then write 0x00
+                          to control port at 0x3C0
+
+To restore screen       - read flipflop at 0x3DA, then write 0x020
+                          to control port at 0x3C0
